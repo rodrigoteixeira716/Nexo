@@ -1,0 +1,333 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#070b20"><title>NEXO v0.6</title><style>
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:#050817;color:#f7f8ff}button,input{font:inherit}.app{max-width:520px;margin:auto;min-height:100vh;background:radial-gradient(circle at 70% 0,#23125b55,transparent 35%),#080c20}.splash{position:fixed;inset:0;z-index:99;background:radial-gradient(circle at center,#1b1554,#050817 65%);display:grid;place-items:center;transition:.7s}.splash.hide{opacity:0;visibility:hidden}.brand{text-align:center}.mark{width:116px;height:116px;margin:auto;border:2px solid #36eaff;border-radius:28px;box-shadow:0 0 30px #4a40ff88,inset 0 0 24px #e62dff33;display:grid;place-items:center;animation:pop .8s ease}.mark span{font-size:64px;font-weight:900;background:linear-gradient(135deg,#41efff,#5870ff,#ff42df);-webkit-background-clip:text;color:transparent}.letters{font-size:43px;font-weight:900;letter-spacing:10px;margin:22px 0 7px}.letters i{font-style:normal;opacity:0;animation:letter .4s forwards}.letters i:nth-child(2){animation-delay:.15s}.letters i:nth-child(3){animation-delay:.3s}.letters i:nth-child(4){animation-delay:.45s}.tag{font-size:11px;letter-spacing:3px;color:#ccd4ff;opacity:0;animation:fade .7s .8s forwards}@keyframes pop{from{transform:scale(.3) rotate(-12deg);opacity:0}}@keyframes letter{to{opacity:1}}@keyframes fade{to{opacity:1}}
+header{position:sticky;top:0;z-index:5;padding:20px 18px 12px;background:#080c20dd;backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:space-between}.logo{font-size:24px;font-weight:900;letter-spacing:4px}.logo b{background:linear-gradient(90deg,#35e8ff,#ff4cdd);-webkit-background-clip:text;color:transparent}.avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#34e8ff,#7d42ff);display:grid;place-items:center;font-weight:800}.content{padding:8px 16px 92px}.search{background:#11172f;border:1px solid #242c50;border-radius:16px;padding:13px 15px;color:white;width:100%;outline:none}.stories{display:flex;gap:14px;overflow:auto;padding:18px 0}.story{text-align:center;font-size:11px;min-width:62px}.story .ring{width:58px;height:58px;border-radius:50%;padding:2px;background:linear-gradient(135deg,#31eaff,#fd3fdb);margin:auto auto 6px}.story .ring div{height:100%;border-radius:50%;background:#17203f;display:grid;place-items:center;font-weight:800}.section{display:flex;justify-content:space-between;align-items:center;margin:5px 0 10px}.section h2{font-size:17px;margin:0}.muted{color:#8e99bd}.chatrow{display:flex;gap:12px;padding:13px 2px;border-bottom:1px solid #171d36;cursor:pointer}.chatrow .pic{width:50px;height:50px;flex:0 0 50px;border-radius:17px;background:linear-gradient(135deg,#29365f,#703dc1);display:grid;place-items:center;font-weight:800}.chatrow .main{min-width:0;flex:1}.topline{display:flex;justify-content:space-between}.name{font-weight:750}.time{font-size:11px;color:#7883a6}.preview{font-size:13px;color:#929cbb;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:5px}.badge{background:#5a4cff;border-radius:20px;padding:2px 7px;font-size:10px}.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);height:76px;background:#0d1229ee;backdrop-filter:blur(20px);border-top:1px solid #222b4b;display:flex;justify-content:space-around;align-items:center;z-index:8}.nav button{background:none;border:0;color:#7f89aa;font-size:11px}.nav button span{display:block;font-size:21px;margin-bottom:3px}.nav .active{color:#5beaff}.plus{width:54px!important;height:54px;border-radius:18px!important;background:linear-gradient(135deg,#24dfff,#7549ff,#ff3bd7)!important;color:white!important;font-size:27px!important;box-shadow:0 7px 25px #7048ff55}
+.page{display:none}.page.on{display:block}.chatpage{position:fixed;inset:0;z-index:20;background:#070b1c;max-width:520px;margin:auto;display:none;flex-direction:column}.chatpage.on{display:flex}.chathead{display:flex;gap:10px;align-items:center;padding:14px;border-bottom:1px solid #202744}.back{border:0;background:none;color:white;font-size:25px}.online{font-size:11px;color:#52e3bb}.msgs{flex:1;overflow:auto;padding:18px;background:radial-gradient(circle at 20% 20%,#18204b55,transparent 28%)}.bubble{max-width:80%;padding:11px 13px;border-radius:18px;margin:8px 0;font-size:14px;line-height:1.35}.them{background:#151c36;border-bottom-left-radius:5px}.me{background:linear-gradient(135deg,#2c56c7,#743bd0);margin-left:auto;border-bottom-right-radius:5px}.special{border:1px solid #4e5c91;background:#111831}.special strong{display:block;color:#61e7ff;margin-bottom:5px}.composer{padding:10px 12px 14px;display:flex;gap:8px;background:#0b1026}.composer input{flex:1;border:1px solid #273053;background:#141b35;color:white;padding:12px 14px;border-radius:18px;outline:none}.round{border:0;background:#222b50;color:white;border-radius:16px;width:46px}.send{background:linear-gradient(135deg,#29dff2,#7046ed)}.sheet{position:fixed;inset:0;z-index:50;background:#0009;display:none;align-items:end;justify-content:center}.sheet.on{display:flex}.panel{width:min(520px,100%);background:#11172e;border-radius:28px 28px 0 0;padding:20px 18px 30px}.handle{width:45px;height:4px;background:#475170;border-radius:9px;margin:0 auto 18px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.tool{text-align:center;font-size:11px;color:#c3c9df}.tool button{width:56px;height:56px;border:0;border-radius:18px;background:#20294c;color:white;font-size:24px;margin-bottom:6px}.card{padding:16px;border:1px solid #252e50;border-radius:20px;background:#10162d;margin:12px 0}.card h3{margin:0 0 5px}.action{border:0;border-radius:14px;background:linear-gradient(135deg,#2bdcec,#6c4bf3);color:white;padding:11px 14px;font-weight:700}.profileHero{text-align:center;padding:25px}.bigavatar{width:90px;height:90px;border-radius:30px;margin:auto;background:linear-gradient(135deg,#36e9ff,#7b45ff,#fa3bd9);display:grid;place-items:center;font-size:32px;font-weight:900}.toast{position:fixed;top:85px;left:50%;transform:translateX(-50%) translateY(-20px);z-index:80;background:#171e3c;border:1px solid #4c5a91;border-radius:16px;padding:12px 16px;opacity:0;transition:.3s;pointer-events:none;white-space:nowrap}.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+.modal{position:fixed;inset:0;z-index:70;background:#000b;display:none;place-items:center;padding:18px}.modal.on{display:grid}.dialog{width:min(460px,100%);max-height:85vh;overflow:auto;background:#11172e;border:1px solid #2c365f;border-radius:24px;padding:18px}.dialog h2{margin:0 0 14px}.field{width:100%;background:#0c1228;border:1px solid #29345d;color:white;border-radius:14px;padding:12px;margin:6px 0 12px;outline:none}.row{display:flex;gap:8px;flex-wrap:wrap}.secondary{border:1px solid #34406d;background:#171e39;color:#dfe6ff;border-radius:13px;padding:10px 12px}.danger{border:1px solid #783b5d;background:#38162a;color:#ffd8e9;border-radius:13px;padding:10px 12px}.msgwrap{position:relative}.meta{font-size:9px;opacity:.65;margin-top:4px;text-align:right}.reply{font-size:11px;border-left:3px solid #58e8ff;padding-left:8px;margin-bottom:6px;color:#cbd6ff}.reactions{font-size:11px;margin-top:5px}.msgmenu{display:flex;gap:5px;justify-content:flex-end;margin:-4px 0 8px}.msgmenu button{border:0;background:#151d39;color:#bfc8e8;border-radius:10px;padding:5px 7px;font-size:11px}.replybar{display:none;padding:8px 14px;background:#101831;border-top:1px solid #253058;font-size:12px}.replybar.on{display:flex;justify-content:space-between}.statuspill{display:inline-block;padding:5px 9px;border-radius:20px;background:#142746;color:#64ecc6;font-size:11px}.fab{position:fixed;right:max(18px,calc((100vw - 520px)/2 + 18px));bottom:92px;border:0;width:52px;height:52px;border-radius:18px;background:linear-gradient(135deg,#26e1f4,#7247ef);color:white;font-size:25px;box-shadow:0 8px 25px #4d49dd66}.roommembers{font-size:11px;color:#909bc0}.check{accent-color:#6556ff}.pollopt{display:block;width:100%;text-align:left;margin:7px 0;padding:9px;border:1px solid #33406e;border-radius:11px;background:#141d39;color:white}.gamebox{text-align:center;font-size:26px;padding:8px}.tiny{font-size:11px;color:#8995ba}.setting{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 0;border-bottom:1px solid #222a49}.setting:last-child{border:0}
+
+.mediaimg{max-width:100%;border-radius:14px;display:block;margin-bottom:7px;cursor:pointer}.audioPlayer{width:230px;max-width:100%;height:38px}.pinned{margin:0 12px 8px;padding:9px 12px;border:1px solid #324270;border-radius:13px;background:#101a37;font-size:11px;display:none}.pinned.on{display:flex;gap:8px;align-items:center}.chatSearch{display:none;padding:8px 12px;background:#0b1026}.chatSearch.on{display:flex}.chatSearch input{width:100%;background:#141b35;border:1px solid #2a355d;color:white;border-radius:13px;padding:10px}.hit{outline:2px solid #53e8ff;box-shadow:0 0 18px #4beaff55}.typing{height:22px;padding:0 18px;font-size:11px;color:#69e9ca;display:none}.typing.on{display:block}.recording{background:#5b2346!important;animation:pulseRec 1s infinite}@keyframes pulseRec{50%{transform:scale(.94);box-shadow:0 0 20px #ff4d9a}}.touchflash{position:fixed;inset:0;z-index:90;display:none;place-items:center;background:#071022e8;backdrop-filter:blur(12px)}.touchflash.on{display:grid}.touchbell{font-size:76px;animation:ring .8s ease infinite;text-align:center}.touchbell b{display:block;font-size:25px;letter-spacing:4px;margin-top:16px}.touchbell small{display:block;font-size:12px;letter-spacing:1px;color:#b8c8ef;margin-top:8px}@keyframes ring{25%{transform:rotate(12deg) scale(1.08)}75%{transform:rotate(-12deg) scale(1.08)}}
+
+/* NEXO v0.5 */
+.moment{padding:16px;border:1px solid #2b3763;border-radius:22px;background:linear-gradient(145deg,#111a38,#15122e);margin:12px 0}.momentTop{display:flex;gap:10px;align-items:center}.momentText{font-size:16px;line-height:1.45;margin:15px 0}.momentActions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.miniAvatar{width:38px;height:38px;border-radius:14px;background:linear-gradient(135deg,#35e8ff,#7b45ff,#f53ad7);display:grid;place-items:center;font-weight:800}.chips{display:flex;gap:7px;flex-wrap:wrap}.chip{border:1px solid #33416f;background:#141c39;color:#dbe4ff;border-radius:20px;padding:7px 10px;font-size:11px}.chatFlags{font-size:10px;color:#8ea0ca;margin-top:4px}.infoGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.infoGrid button{min-height:55px}.mediaGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.mediaGrid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px}.archived{opacity:.55}.wallpaperDots{background-image:radial-gradient(#6572a522 1px,transparent 1px)!important;background-size:18px 18px!important}.wallpaperGlow{background:radial-gradient(circle at 20% 20%,#613bb633,transparent 32%),radial-gradient(circle at 80% 70%,#16cce322,transparent 30%),#080c20!important}.wallpaperClean{background:#080c20!important}
+
+/* NEXO v0.6 - autenticação local */
+.authscreen{position:fixed;inset:0;z-index:95;background:radial-gradient(circle at 50% 5%,#29145e,#070b20 48%,#050817);display:none;align-items:center;justify-content:center;padding:24px;overflow:auto}.authscreen.on{display:flex}.authbox{width:min(100%,430px);background:#0d1430ee;border:1px solid #2e3d73;border-radius:28px;padding:26px;box-shadow:0 24px 80px #0009,0 0 35px #6d43ff22}.authlogo{text-align:center;margin-bottom:24px}.authlogo .mark{width:82px;height:82px;border-radius:22px}.authlogo .mark span{font-size:46px}.authlogo h1{font-size:34px;letter-spacing:8px;margin:15px 0 4px}.authlogo p{font-size:10px;letter-spacing:2px;color:#b9c5ee;margin:0}.authTabs{display:grid;grid-template-columns:1fr 1fr;background:#080d21;border-radius:15px;padding:4px;margin:18px 0}.authTabs button{border:0;border-radius:12px;padding:11px;background:transparent;color:#8795bd;font-weight:700}.authTabs button.active{background:#202b53;color:white}.authForm{display:none}.authForm.on{display:block}.authHint{font-size:11px;line-height:1.5;color:#8795bd;text-align:center;margin-top:14px}.authError{min-height:18px;color:#ff8cae;font-size:12px;margin:6px 2px}.remember{display:flex;gap:8px;align-items:center;font-size:12px;color:#b9c5ee;margin:8px 0 15px}.logoutBtn{width:100%;margin-top:8px}.sessionCard{border:1px solid #2c3966;background:#0d1430;border-radius:18px;padding:14px;margin-top:12px}.sessionCard b{display:block;margin-bottom:4px}
+
+/* NEXO v0.7 - enquete real */
+.pollBox{margin-top:12px;display:grid;gap:8px}.pollChoice{position:relative;width:100%;text-align:left;border:1px solid #344478;background:#101936;color:#eef2ff;border-radius:14px;padding:11px 12px;overflow:hidden;cursor:pointer}.pollChoice .pollFill{position:absolute;inset:0 auto 0 0;background:linear-gradient(90deg,#35e8ff22,#f53ad733);pointer-events:none}.pollChoice .pollLine{position:relative;z-index:1;display:flex;justify-content:space-between;gap:10px;font-weight:700}.pollChoice.voted{border-color:#7c67ff;box-shadow:0 0 0 1px #7c67ff55 inset}.pollMeta{font-size:11px;color:#91a3d4;margin-top:4px}.pollComposerHint{font-size:11px;color:#91a3d4}
+</style></head><body><div class="app">
+<div class="splash" id="splash"><div class="brand"><div class="mark"><span>N</span></div><div class="letters"><i>N</i><i>E</i><i>X</i><i>O</i></div><div class="tag">TUDO COMEÇA COM UMA CONEXÃO.</div></div></div>
+
+<div class="authscreen" id="authscreen"><div class="authbox"><div class="authlogo"><div class="mark"><span>N</span></div><h1>NEXO</h1><p>TUDO COMEÇA COM UMA CONEXÃO.</p></div><div class="authTabs"><button id="loginTab" class="active" onclick="authTab('login')">Entrar</button><button id="registerTab" onclick="authTab('register')">Criar conta</button></div><div class="authForm on" id="loginForm"><input class="field" id="loginUser" placeholder="@usuário" autocomplete="username"><input class="field" id="loginPass" type="password" placeholder="Senha" autocomplete="current-password"><label class="remember"><input type="checkbox" id="rememberMe" checked> Manter minha conta conectada</label><div class="authError" id="loginError"></div><button class="action" style="width:100%" onclick="loginLocal()">Entrar no NEXO</button><div class="authHint">Protótipo local: sua conta existe somente neste navegador.</div></div><div class="authForm" id="registerForm"><input class="field" id="regName" placeholder="Seu nome"><input class="field" id="regUser" placeholder="@usuário"><input class="field" id="regPass" type="password" placeholder="Senha (mínimo 4 caracteres)"><input class="field" id="regPass2" type="password" placeholder="Confirmar senha"><div class="authError" id="regError"></div><button class="action" style="width:100%" onclick="registerLocal()">Criar minha conta</button><div class="authHint">Nesta fase usamos LocalStorage. No Supabase, a autenticação será substituída por contas reais e seguras.</div></div></div></div>
+<div class="toast" id="toast"></div><div class="touchflash" id="touchflash" onclick="this.classList.remove('on')"><div class="touchbell">🔔<b>NEXO TOQUE</b><small id="touchText">Uma conexão está chamando você</small></div></div><header><div class="logo"><b>NEXO</b></div><div class="avatar">R</div></header>
+<main class="content"><section class="page on" id="conversas"><input class="search" id="search" placeholder="Pesquisar conexões..."><div class="stories" id="stories"></div><div class="section"><h2>Conversas</h2><span class="muted">Recentes</span></div><div id="chatlist"></div></section>
+<section class="page" id="pessoas"><div class="section"><h2>Pessoas</h2><span class="muted">Suas conexões</span></div><div class="card"><h3>Descobrir pessoas</h3><p class="muted">No futuro: QR NEXO, nome de usuário e contatos.</p><button class="action" onclick="toast('QR NEXO será liberado na próxima etapa')">Abrir meu QR</button></div><div id="people"></div><button class="fab" onclick="openModal('contactModal')">＋</button></section>
+<section class="page" id="salas"><div class="section"><h2>Salas</h2><span class="muted">Espaços compartilhados</span></div><div id="rooms"></div><button class="action" onclick="openModal('roomModal')">+ Criar sala</button></section>
+<section class="page" id="momentos"><div class="section"><h2>✨ NEXO Momentos</h2><span class="muted">Interaja, não só veja</span></div><div class="card"><b>Compartilhe um momento</b><p class="muted">Publique algo e escolha uma ação para suas conexões.</p><button class="action" onclick="openMomentComposer()">＋ Criar Momento</button></div><div id="momentsList"></div></section>
+<section class="page" id="perfil"><div class="profileHero"><div class="bigavatar" id="profileAvatar">R</div><h2 id="profileName">Rodrigo</h2><div class="muted"><span id="profileUser">@rodrigo</span> • <span id="profileStatus">Disponível 🟢</span></div><br><button class="action" onclick="openModal('profileModal')">Editar perfil</button></div><div class="card"><div class="setting"><div><b>🔔 NEXO Toque</b><div class="tiny">Chamadas rápidas entre conexões</div></div><span class="statuspill">ATIVO</span></div><div class="setting"><div><b>⭐ Mensagens favoritas</b><div class="tiny" id="favCount">0 salvas</div></div><button class="secondary" onclick="showFavorites()">Ver</button></div><div class="setting"><div><b>💾 Backup local</b><div class="tiny">Exportar seus testes em JSON</div></div><button class="secondary" onclick="exportBackup()">Exportar</button></div><div class="setting"><div><b>↺ Restaurar demonstração</b><div class="tiny">Apaga alterações deste navegador</div></div><button class="danger" onclick="resetDemo()">Restaurar</button></div></div><div class="card"><h3>Conta local</h3><div class="sessionCard"><b id="sessionName">Usuário</b><span class="tiny" id="sessionUser">@usuario</span></div><button class="danger logoutBtn" onclick="logoutLocal()">Sair da conta</button></div><div class="card"><h3>Sobre</h3><p class="muted">NEXO v0.6.2 • Tudo começa com uma conexão.</p></div></section></main>
+<nav class="nav"><button class="active" data-page="conversas"><span>💬</span>Conversas</button><button data-page="pessoas"><span>👥</span>Pessoas</button><button class="plus" id="globalPlus">+</button><button data-page="momentos"><span>✨</span>Momentos</button><button data-page="salas"><span>◫</span>Salas</button><button data-page="perfil"><span>◉</span>Perfil</button></nav></div>
+<div class="chatpage" id="chatpage"><div class="chathead"><button class="back" id="back">‹</button><div class="avatar" id="chatAvatar">A</div><div><b id="chatName">Ana</b><div class="online">● online agora</div></div><button class="round" style="margin-left:auto" onclick="toggleChatSearch()">⌕</button><button class="round" onclick="openChatInfo()">ⓘ</button><button class="round" onclick="nexoTouchV3()">🔔</button></div><div class="chatSearch" id="chatSearch"><input id="chatSearchInput" placeholder="Buscar nesta conversa..." oninput="searchInChat(this.value)"></div><div class="pinned" id="pinned"></div><div class="msgs" id="msgs"></div><div class="typing" id="typing">● digitando...</div><div class="replybar" id="replybar"></div><div class="composer"><button class="round" id="chatPlus">＋</button><input id="mediaInput" type="file" accept="image/*" hidden><button class="round" onclick="document.getElementById('mediaInput').click()">📷</button><input id="message" placeholder="Mensagem..."><button class="round" id="micBtn" onclick="toggleRecording()">🎙</button><button class="round send" id="send">➤</button></div></div>
+<div class="sheet" id="sheet"><div class="panel"><div class="handle"></div><div class="section"><h2>NEXO+</h2><span class="muted">Faça mais na conversa</span></div><div class="grid"><div class="tool"><button onclick="nexoTouch()">🔔</button>Toque</div><div class="tool"><button onclick="createTool('task')">✅</button>Tarefa</div><div class="tool"><button onclick="createTool('poll')">📊</button>Enquete</div><div class="tool"><button onclick="createTool('event')">📅</button>Evento</div><div class="tool"><button onclick="createTool('split')">💰</button>Dividir</div><div class="tool"><button onclick="createTool('location')">📍</button>Local</div><div class="tool"><button onclick="createTool('schedule')">⏳</button>Agendar</div><div class="tool"><button onclick="createTool('game')">🎮</button>Jogar</div></div></div></div>
+
+<div class="modal" id="contactModal"><div class="dialog"><h2>Nova conexão</h2><input class="field" id="newName" placeholder="Nome"><input class="field" id="newUser" placeholder="@usuario"><div class="row"><button class="action" onclick="addContact()">Adicionar</button><button class="secondary" onclick="closeModals()">Cancelar</button></div></div></div>
+<div class="modal" id="roomModal"><div class="dialog"><h2>Nova sala</h2><input class="field" id="roomName" placeholder="Nome da sala"><input class="field" id="roomDesc" placeholder="Objetivo da sala"><div class="row"><button class="action" onclick="addRoom()">Criar sala</button><button class="secondary" onclick="closeModals()">Cancelar</button></div></div></div>
+<div class="modal" id="profileModal"><div class="dialog"><h2>Editar perfil</h2><input class="field" id="editName" placeholder="Nome"><input class="field" id="editUser" placeholder="@usuario"><select class="field" id="editStatus"><option>Disponível 🟢</option><option>Trabalhando 💼</option><option>Ocupado 🔴</option><option>Jogando 🎮</option><option>Não perturbe 🌙</option></select><div class="row"><button class="action" onclick="saveProfile()">Salvar</button><button class="secondary" onclick="closeModals()">Cancelar</button></div></div></div>
+<div class="modal" id="toolModal"><div class="dialog"><h2 id="toolTitle">NEXO+</h2><div id="toolFields"></div><div class="row"><button class="action" id="toolSave">Criar</button><button class="secondary" onclick="closeModals()">Cancelar</button></div></div></div>
+<div class="modal" id="favoritesModal"><div class="dialog"><h2>⭐ Favoritas</h2><div id="favoritesList"></div><br><button class="secondary" onclick="closeModals()">Fechar</button></div></div>
+<div class="modal" id="momentModal"><div class="dialog"><h2>✨ Novo Momento</h2><textarea class="field" id="momentText" rows="4" placeholder="O que está acontecendo?"></textarea><select class="field" id="momentAction" onchange="togglePollComposer()"><option>💬 Me chama</option><option>🙋 Vamos?</option><option>📊 Enquete</option><option>✨ Participar</option><option>❤️ Reagir</option></select><div id="pollComposer" style="display:none;margin-top:10px"><div class="tiny" style="margin-bottom:7px">📊 OPÇÕES DA ENQUETE</div><input class="field pollOptionInput" placeholder="Opção 1"><input class="field pollOptionInput" placeholder="Opção 2"><div id="extraPollOptions"></div><button type="button" class="secondary" style="width:100%;margin-bottom:10px" onclick="addPollOption()">＋ Adicionar opção</button></div><div class="row"><button class="action" onclick="publishMoment()">Publicar</button><button class="secondary" onclick="closeModals()">Cancelar</button></div></div></div>
+<div class="modal" id="chatInfoModal"><div class="dialog"><h2 id="infoTitle">Informações</h2><div class="chips" id="infoFlags"></div><div class="infoGrid" style="margin-top:14px"><button class="secondary" onclick="toggleChatFlag('favorite')">⭐ Favoritar</button><button class="secondary" onclick="toggleChatFlag('muted')">🔕 Silenciar</button><button class="secondary" onclick="toggleChatFlag('archived')">📦 Arquivar</button><button class="secondary" onclick="toggleChatFlag('blocked')">⛔ Bloquear</button></div><h3>🎨 Fundo da conversa</h3><div class="row"><button class="secondary" onclick="setWallpaper('dots')">Pontos</button><button class="secondary" onclick="setWallpaper('glow')">Glow</button><button class="secondary" onclick="setWallpaper('clean')">Limpo</button></div><h3>📌 Fixadas e ⭐ favoritas</h3><div id="infoSaved"></div><h3>🖼️ Mídias</h3><div class="mediaGrid" id="infoMedia"></div><br><button class="secondary" onclick="closeModals()">Fechar</button></div></div>
+<div class="modal" id="forwardModal"><div class="dialog"><h2>↗️ Encaminhar para</h2><div id="forwardList"></div><br><button class="secondary" onclick="closeModals()">Cancelar</button></div></div>
+<script>
+const $=s=>document.querySelector(s);
+const DEMO={profile:{name:'Rodrigo',user:'@rodrigo',status:'Disponível 🟢'},chats:[{id:1,name:'Ana',user:'@ana',initial:'A',last:'Você viu a novidade do NEXO?',time:'17:02',unread:2},{id:2,name:'Lucas',user:'@lucas',initial:'L',last:'Fechou! Amanhã então 👊',time:'15:48',unread:0},{id:3,name:'Família',user:'sala',initial:'F',last:'Mãe: coloquei na lista de compras',time:'13:20',unread:4},{id:4,name:'Mariana',user:'@mariana',initial:'M',last:'🔔 tocou seu NEXO',time:'Ontem',unread:0}],messages:{1:[{side:'them',text:'Bem-vindo ao NEXO 😄',at:'16:58'},{side:'them',text:'Aqui a conversa pode virar tarefa, evento, enquete e muito mais.',at:'16:59'},{side:'me',text:'Ficou muito bom! 🔥',at:'17:00'}],2:[{side:'them',text:'Vamos testar esse aplicativo depois?',at:'15:45'},{side:'me',text:'Fechou!',at:'15:48'}],3:[{side:'them',text:'Criei a lista de compras da casa.',at:'13:20'}],4:[{side:'them',text:'🔔 Toquei seu NEXO!',at:'Ontem'}]},rooms:[{id:1,name:'🏠 Família',desc:'Lista de compras e tarefas',members:4},{id:2,name:'🎮 Galera',desc:'Jogos, enquetes e encontros',members:5}]};
+function normalize(d){d.profile??=DEMO.profile;d.rooms??=DEMO.rooms;Object.keys(d.messages||{}).forEach(k=>d.messages[k]=d.messages[k].map(m=>Array.isArray(m)?(m[0]==='special'?{side:'me',type:'special',icon:m[1],title:m[2],text:m[3],at:'antes'}:{side:m[0],text:m[1],at:'antes'}):m));return d}
+const AUTH_USERS='nexoUsersV06',AUTH_SESSION='nexoSessionV06';
+let activeUser=localStorage.getItem(AUTH_SESSION)||sessionStorage.getItem(AUTH_SESSION)||'';
+const dataKey=()=>activeUser?'nexoDataV06_'+activeUser.toLowerCase():'nexoDataV06_guest';
+let store=normalize(JSON.parse(localStorage.getItem(dataKey())||'null')||structuredClone(DEMO)),current=1,replyTo=null,toolType='';
+const now=()=>new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});function save(){localStorage.setItem(dataKey(),JSON.stringify(store))}
+function esc(v=''){return String(v).replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function render(){const q=($('#search')?.value||'').toLowerCase();$('#chatlist').innerHTML=store.chats.filter(c=>(c.name+' '+(c.user||'')).toLowerCase().includes(q)).map(c=>`<div class="chatrow" onclick="openChat(${c.id})"><div class="pic">${esc(c.initial)}</div><div class="main"><div class="topline"><span class="name">${esc(c.name)}</span><span class="time">${esc(c.time)}</span></div><div class="preview">${esc(c.last)}</div></div>${c.unread?`<span class="badge">${c.unread}</span>`:''}</div>`).join('');$('#people').innerHTML=store.chats.filter(c=>c.user!=='sala').map(c=>`<div class="chatrow" onclick="openChat(${c.id})"><div class="pic">${esc(c.initial)}</div><div class="main"><div class="name">${esc(c.name)}</div><div class="preview">${esc(c.user||'')} • disponível no NEXO</div></div></div>`).join('');$('#stories').innerHTML=store.chats.slice(0,6).map(c=>`<div class="story" onclick="toast('Status de ${esc(c.name)} aberto')"><div class="ring"><div>${esc(c.initial)}</div></div>${esc(c.name)}</div>`).join('');$('#rooms').innerHTML=store.rooms.map(r=>`<div class="card"><h3>${esc(r.name)}</h3><p class="muted">${esc(r.desc)}</p><div class="roommembers">👥 ${r.members} membros</div></div>`).join('');renderProfile()}
+function renderProfile(){let p=store.profile;$('#profileName').textContent=p.name;$('#profileUser').textContent=p.user;$('#profileStatus').textContent=p.status;$('#profileAvatar').textContent=p.name[0].toUpperCase();document.querySelector('header .avatar').textContent=p.name[0].toUpperCase();let fav=Object.values(store.messages).flat().filter(m=>m.favorite).length;$('#favCount').textContent=fav+' salvas'}
+function openChat(id){current=id;let c=store.chats.find(x=>x.id===id);c.unread=0;$('#chatName').textContent=c.name;$('#chatAvatar').textContent=c.initial;replyTo=null;replyBar();drawMsgs();$('#chatpage').classList.add('on');save();render()}
+function drawMsgs(){let arr=store.messages[current]||[];$('#msgs').innerHTML=arr.map((m,i)=>{let body=m.type==='special'?specialHTML(m,i):`<div class="bubble ${m.side}">${m.reply?`<div class="reply">↩ ${esc(m.reply)}</div>`:''}${esc(m.text)}${m.reactions?`<div class="reactions">${esc(m.reactions)}</div>`:''}<div class="meta">${m.favorite?'⭐ ':''}${esc(m.at||'')}</div></div>`;return `<div class="msgwrap">${body}<div class="msgmenu"><button onclick="setReply(${i})">↩</button><button onclick="reactMsg(${i})">❤️</button><button onclick="favMsg(${i})">⭐</button>${m.side==='me'?`<button onclick="editMsg(${i})">✎</button><button onclick="deleteMsg(${i})">🗑</button>`:''}</div></div>`}).join('');$('#msgs').scrollTop=$('#msgs').scrollHeight}
+function specialHTML(m,i){let inner='';if(m.kind==='task')inner=`<label><input class="check" type="checkbox" ${m.done?'checked':''} onchange="toggleTask(${i})"> ${m.done?'Concluída':'Marcar como concluída'}</label>`;if(m.kind==='poll')inner=(m.options||[]).map((o,j)=>`<button class="pollopt" onclick="vote(${i},${j})">${esc(o)} • ${(m.votes||[])[j]||0} voto(s)</button>`).join('');if(m.kind==='game')inner=`<div class="gamebox">${m.played?'🏆 '+esc(m.result):`<button class="action" onclick="playGame(${i})">Jogar agora</button>`}</div>`;return `<div class="bubble me special"><strong>${esc(m.icon)} ${esc(m.title)}</strong>${esc(m.text||'')} ${inner}<div class="meta">${m.favorite?'⭐ ':''}${esc(m.at||'')}</div></div>`}
+function send(){let v=$('#message').value.trim();if(!v)return;(store.messages[current]??=[]).push({side:'me',text:v,at:now(),reply:replyTo?.text||null});updateLast(v);$('#message').value='';replyTo=null;replyBar();save();drawMsgs();render()}
+function updateLast(v){let c=store.chats.find(x=>x.id===current);if(c){c.last=v;c.time='agora'}}
+function setReply(i){let m=store.messages[current][i];replyTo={text:m.text||m.title||'Card NEXO+'};replyBar();$('#message').focus()}
+function replyBar(){let b=$('#replybar');if(replyTo){b.classList.add('on');b.innerHTML=`<span>↩ Respondendo: ${esc(replyTo.text).slice(0,50)}</span><button class="secondary" onclick="replyTo=null;replyBar()">×</button>`}else b.classList.remove('on')}
+function reactMsg(i){let m=store.messages[current][i];m.reactions=m.reactions==='❤️ 1'?'':'❤️ 1';save();drawMsgs()}
+function favMsg(i){let m=store.messages[current][i];m.favorite=!m.favorite;save();drawMsgs();renderProfile();toast(m.favorite?'⭐ Mensagem favoritada':'Removida das favoritas')}
+function editMsg(i){let m=store.messages[current][i];if(m.type==='special')return toast('Cards NEXO+ não são editáveis ainda');let v=prompt('Editar mensagem:',m.text);if(v!==null&&v.trim()){m.text=v.trim();m.edited=true;m.at=(m.at||'')+' • editada';save();drawMsgs()}}
+function deleteMsg(i){if(confirm('Excluir esta mensagem?')){store.messages[current].splice(i,1);save();drawMsgs();toast('Mensagem excluída')}}
+function addSpecial(icon,title,text,extra={}){(store.messages[current]??=[]).push({side:'me',type:'special',icon,title,text,at:now(),...extra});updateLast(icon+' '+title);save();drawMsgs();render();closeSheet();closeModals()}
+function nexoTouch(){addSpecial('🔔','NEXO Toque','Você tocou o NEXO de '+$('#chatName').textContent+'.',{kind:'touch'});toast('🔔 Toque enviado!')}
+function createTool(type){if(!$('#chatpage').classList.contains('on'))return toast('Abra uma conversa primeiro');toolType=type;let map={task:['✅ Nova tarefa','<input class="field" id="tf1" placeholder="O que precisa ser feito?">'],poll:['📊 Nova enquete','<input class="field" id="tf1" placeholder="Pergunta"><input class="field" id="tf2" placeholder="Opção 1"><input class="field" id="tf3" placeholder="Opção 2">'],event:['📅 Novo evento','<input class="field" id="tf1" placeholder="Nome do evento"><input class="field" id="tf2" type="datetime-local">'],split:['💰 Dividir conta','<input class="field" id="tf1" placeholder="Descrição"><input class="field" id="tf2" type="number" step="0.01" placeholder="Valor total"><input class="field" id="tf3" type="number" min="2" value="2" placeholder="Pessoas">'],location:['📍 Compartilhar local','<input class="field" id="tf1" placeholder="Nome do local">'],schedule:['⏳ Programar mensagem','<input class="field" id="tf1" placeholder="Mensagem"><input class="field" id="tf2" type="datetime-local">'],game:['🎮 Mini Game','<p class="muted">Envie um desafio rápido de Pedra, Papel ou Tesoura.</p>']};$('#toolTitle').textContent=map[type][0];$('#toolFields').innerHTML=map[type][1];$('#toolSave').onclick=saveTool;closeSheet();openModal('toolModal')}
+function saveTool(){let a=$('#tf1')?.value?.trim(),b=$('#tf2')?.value?.trim(),c=$('#tf3')?.value?.trim();if(toolType!=='game'&&!a)return toast('Preencha o primeiro campo');if(toolType==='task')addSpecial('✅','Tarefa',a,{kind:'task',done:false});if(toolType==='poll')addSpecial('📊',a,'Toque em uma opção para votar.',{kind:'poll',options:[b||'Sim',c||'Não'],votes:[0,0]});if(toolType==='event')addSpecial('📅','Evento',a+' • '+(b?new Date(b).toLocaleString('pt-BR'):'sem data'),{kind:'event'});if(toolType==='split'){let val=Number(b||0),n=Math.max(2,Number(c||2));addSpecial('💰','Dividir conta',`${a} • R$ ${val.toFixed(2)} • R$ ${(val/n).toFixed(2)} por pessoa`,{kind:'split'})}if(toolType==='location')addSpecial('📍','Local',a,{kind:'location'});if(toolType==='schedule')addSpecial('⏳','Programada',`${a} • ${b?new Date(b).toLocaleString('pt-BR'):'sem horário'}`,{kind:'schedule'});if(toolType==='game')addSpecial('🎮','Pedra, Papel ou Tesoura','Desafio enviado.',{kind:'game',played:false})}
+function toggleTask(i){let m=store.messages[current][i];m.done=!m.done;save();drawMsgs()}
+function vote(i,j){let m=store.messages[current][i];m.votes??=m.options.map(()=>0);m.votes[j]++;save();drawMsgs();toast('Voto registrado 📊')}
+function playGame(i){let opts=['Pedra ✊','Papel ✋','Tesoura ✌️'];let you=opts[Math.floor(Math.random()*3)],other=opts[Math.floor(Math.random()*3)];store.messages[current][i].played=true;store.messages[current][i].result=`Você: ${you} • NEXO: ${other}`;save();drawMsgs()}
+function addContact(){let name=$('#newName').value.trim(),user=$('#newUser').value.trim();if(!name)return toast('Digite um nome');let id=Math.max(0,...store.chats.map(c=>c.id))+1;store.chats.push({id,name,user:user||'@'+name.toLowerCase().replace(/\s/g,''),initial:name[0].toUpperCase(),last:'Nova conexão no NEXO',time:'agora',unread:0});store.messages[id]=[{side:'them',text:'Conexão criada com sucesso. 👋',at:now()}];save();closeModals();render();toast('Conexão adicionada')}
+function addRoom(){let name=$('#roomName').value.trim(),desc=$('#roomDesc').value.trim();if(!name)return toast('Digite o nome da sala');store.rooms.push({id:Date.now(),name:'◫ '+name,desc:desc||'Nova sala NEXO',members:1});save();closeModals();render();toast('Sala criada')}
+function saveProfile(){let p=store.profile;p.name=$('#editName').value.trim()||p.name;p.user=$('#editUser').value.trim()||p.user;p.status=$('#editStatus').value;save();closeModals();render();toast('Perfil atualizado')}
+function showFavorites(){let all=[];store.chats.forEach(c=>(store.messages[c.id]||[]).forEach(m=>{if(m.favorite)all.push(`<div class="card"><b>${esc(c.name)}</b><p>${esc(m.text||m.title)}</p></div>`)}));$('#favoritesList').innerHTML=all.join('')||'<p class="muted">Nenhuma mensagem favoritada ainda.</p>';openModal('favoritesModal')}
+function exportBackup(){let blob=new Blob([JSON.stringify(store,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='NEXO_backup.json';a.click();URL.revokeObjectURL(a.href);toast('Backup exportado')}
+function resetDemo(){if(confirm('Restaurar todos os dados de demonstração do NEXO?')){localStorage.removeItem(dataKey());location.reload()}}
+function openModal(id){if(id==='profileModal'){$('#editName').value=store.profile.name;$('#editUser').value=store.profile.user;$('#editStatus').value=store.profile.status}$('#'+id).classList.add('on')}
+function closeModals(){document.querySelectorAll('.modal').forEach(m=>m.classList.remove('on'))}
+function toast(t){$('#toast').textContent=t;$('#toast').classList.add('on');setTimeout(()=>$('#toast').classList.remove('on'),2200)}function closeSheet(){$('#sheet').classList.remove('on')}
+$('#send').onclick=send;$('#message').onkeydown=e=>{if(e.key==='Enter')send()};$('#back').onclick=()=>$('#chatpage').classList.remove('on');$('#chatPlus').onclick=()=>$('#sheet').classList.add('on');$('#globalPlus').onclick=()=>{if($('#chatpage').classList.contains('on'))$('#sheet').classList.add('on');else toast('Abra uma conversa para usar o NEXO+')};$('#sheet').onclick=e=>{if(e.target===$('#sheet'))closeSheet()};document.querySelectorAll('.modal').forEach(m=>m.onclick=e=>{if(e.target===m)closeModals()});$('#search').oninput=render;document.querySelectorAll('.nav button[data-page]').forEach(b=>b.onclick=()=>{document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));$('#'+b.dataset.page).classList.add('on');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active')});render();setTimeout(()=>{ if (typeof finishSplash === 'function') finishSplash(); },2600);
+</script>
+<script>
+// NEXO v0.3 — camada de mídia e experiência avançada
+let mediaRecorder=null, audioChunks=[], searchHits=[];
+function safeSave(){try{localStorage.setItem(dataKey(),JSON.stringify(store));return true}catch(e){toast('Armazenamento local cheio. Exclua alguma mídia.');return false}}
+function renderPinned(){let p=(store.messages[current]||[]).find(m=>m.pinned);let el=$('#pinned');if(!p){el.classList.remove('on');return}el.classList.add('on');el.innerHTML=`<span>📌</span><span style="flex:1">${esc(p.text||p.title||'Mídia fixada')}</span><button class="secondary" onclick="unpinAll()">×</button>`}
+function unpinAll(){(store.messages[current]||[]).forEach(m=>m.pinned=false);safeSave();renderPinned();drawMsgsV3()}
+function pinMsg(i){(store.messages[current]||[]).forEach(m=>m.pinned=false);store.messages[current][i].pinned=true;safeSave();renderPinned();drawMsgsV3();toast('📌 Mensagem fixada')}
+function drawMsgsV3(){let arr=store.messages[current]||[];$('#msgs').innerHTML=arr.map((m,i)=>{let content='';if(m.type==='special') content=specialHTML(m,i);else if(m.type==='image') content=`<div class="bubble ${m.side}">${m.reply?`<div class="reply">↩ ${esc(m.reply)}</div>`:''}<img class="mediaimg" src="${m.data}" onclick="openMedia('${m.data}')"><div class="meta">${m.pinned?'📌 ':''}${m.favorite?'⭐ ':''}${esc(m.at||'')} ✓✓</div></div>`;else if(m.type==='audio') content=`<div class="bubble ${m.side}"><div>🎙️ Áudio NEXO</div><audio class="audioPlayer" controls src="${m.data}"></audio><div class="meta">${m.pinned?'📌 ':''}${m.favorite?'⭐ ':''}${esc(m.at||'')} ✓✓</div></div>`;else content=`<div class="bubble ${m.side}">${m.reply?`<div class="reply">↩ ${esc(m.reply)}</div>`:''}${esc(m.text)}${m.reactions?`<div class="reactions">${esc(m.reactions)}</div>`:''}<div class="meta">${m.pinned?'📌 ':''}${m.favorite?'⭐ ':''}${esc(m.at||'')} ✓✓</div></div>`;return `<div class="msgwrap" data-i="${i}">${content}<div class="msgmenu"><button onclick="setReply(${i})">↩</button><button onclick="reactMsg(${i})">❤️</button><button onclick="favMsg(${i})">⭐</button><button onclick="pinMsg(${i})">📌</button>${m.side==='me'?`<button onclick="editMsg(${i})">✎</button><button onclick="deleteMsg(${i})">🗑</button>`:''}</div></div>`}).join('');renderPinned();$('#msgs').scrollTop=$('#msgs').scrollHeight}
+// substitui renderizador anterior mantendo compatibilidade
+drawMsgs=drawMsgsV3;
+function toggleChatSearch(){let e=$('#chatSearch');e.classList.toggle('on');if(e.classList.contains('on'))$('#chatSearchInput').focus();else{$('#chatSearchInput').value='';searchInChat('')}}
+function searchInChat(q){document.querySelectorAll('.msgwrap').forEach(x=>x.classList.remove('hit'));q=q.trim().toLowerCase();if(!q)return;let arr=store.messages[current]||[];let i=arr.findIndex(m=>((m.text||'')+' '+(m.title||'')).toLowerCase().includes(q));if(i>=0){let el=document.querySelector(`.msgwrap[data-i="${i}"]`);el?.classList.add('hit');el?.scrollIntoView({behavior:'smooth',block:'center'})}}
+function openMedia(src){let w=window.open();if(w)w.document.write(`<body style="margin:0;background:#050817;display:grid;place-items:center;min-height:100vh"><img src="${src}" style="max-width:100%;max-height:100vh">
+</body>`)}
+$('#mediaInput').onchange=async e=>{let f=e.target.files[0];if(!f||!current)return;let img=new Image(),url=URL.createObjectURL(f);img.onload=()=>{let max=900,scale=Math.min(1,max/Math.max(img.width,img.height)),c=document.createElement('canvas');c.width=Math.round(img.width*scale);c.height=Math.round(img.height*scale);c.getContext('2d').drawImage(img,0,0,c.width,c.height);let data=c.toDataURL('image/jpeg',.72);let m={side:'me',type:'image',data,at:now()};(store.messages[current]??=[]).push(m);if(!safeSave())store.messages[current].pop();else{updateLast('📷 Foto');drawMsgsV3();render();toast('📷 Foto enviada')}URL.revokeObjectURL(url);e.target.value=''};img.src=url}
+async function toggleRecording(){let b=$('#micBtn');if(mediaRecorder&&mediaRecorder.state==='recording'){mediaRecorder.stop();return}if(!navigator.mediaDevices?.getUserMedia)return toast('Microfone exige navegador com permissão/HTTPS');try{let stream=await navigator.mediaDevices.getUserMedia({audio:true});audioChunks=[];mediaRecorder=new MediaRecorder(stream);mediaRecorder.ondataavailable=e=>audioChunks.push(e.data);mediaRecorder.onstop=()=>{stream.getTracks().forEach(t=>t.stop());b.classList.remove('recording');let blob=new Blob(audioChunks,{type:mediaRecorder.mimeType||'audio/webm'});if(blob.size>1400000)return toast('Áudio longo demais para o LocalStorage');let r=new FileReader();r.onload=()=>{(store.messages[current]??=[]).push({side:'me',type:'audio',data:r.result,at:now()});if(!safeSave())store.messages[current].pop();else{updateLast('🎙️ Áudio');drawMsgsV3();render();toast('🎙️ Áudio enviado')}};r.readAsDataURL(blob)};mediaRecorder.start();b.classList.add('recording');toast('🎙️ Gravando… toque novamente para enviar')}catch(e){toast('Permissão do microfone não disponível aqui')}}
+function nexoTouchV3(){addSpecial('🔔','NEXO Toque','Você tocou o NEXO de '+$('#chatName').textContent+'.',{kind:'touch'});$('#touchText').textContent='Toque enviado para '+$('#chatName').textContent;$('#touchflash').classList.add('on');setTimeout(()=>$('#touchflash').classList.remove('on'),1800)}
+function simulateTyping(){if(!current)return;let t=$('#typing');t.classList.add('on');setTimeout(()=>t.classList.remove('on'),1800)}
+const oldSendV3=send;send=function(){let had=$('#message').value.trim();oldSendV3();if(had)simulateTyping()};$('#send').onclick=send;$('#message').onkeydown=e=>{if(e.key==='Enter')send()};
+const oldOpenV3=openChat;openChat=function(id){oldOpenV3(id);renderPinned()};
+</script>
+<script>
+// NEXO v0.5 — Momentos, organização e informações da conversa
+store.moments ??= [{id:Date.now()-5000,author:'Mariana',initial:'M',text:'Café depois do trabalho? ☕',action:'🙋 Vamos?',interactions:2,chatId:4,at:'Hoje'}];
+store.chats.forEach(c=>{c.favorite??=false;c.muted??=false;c.archived??=false;c.blocked??=false;c.wallpaper??='glow'});safeSave();
+function renderV5(){render();renderMoments();renderChatFlags()}
+function renderMoments(){let el=$('#momentsList');if(!el)return;let ms=[...store.moments].reverse();el.innerHTML=ms.map(m=>`<div class="moment"><div class="momentTop"><div class="miniAvatar">${esc(m.initial||m.author[0])}</div><div><b>${esc(m.author)}</b><div class="tiny">${esc(m.at||'agora')}</div></div></div><div class="momentText">${esc(m.text)}</div><div class="momentActions"><button class="action" onclick="interactMoment(${m.id})">${esc(m.action)}</button><span class="tiny">✨ ${m.interactions||0} interações</span>${m.chatId?`<button class="secondary" onclick="openMomentChat(${m.chatId})">💬 Conversar</button>`:''}</div></div>`).join('')||'<p class="muted">Nenhum Momento ainda.</p>'}
+function openMomentComposer(){$('#momentText').value='';openModal('momentModal')}
+function publishMoment(){let text=$('#momentText').value.trim(),action=$('#momentAction').value;if(!text)return toast('Escreva seu Momento');store.moments.push({id:Date.now(),author:store.profile.name,initial:store.profile.name[0].toUpperCase(),text,action,interactions:0,chatId:null,at:'agora'});safeSave();closeModals();renderMoments();toast('✨ Momento publicado')}
+function interactMoment(id){let m=store.moments.find(x=>x.id===id);if(!m)return;m.interactions=(m.interactions||0)+1;safeSave();renderMoments();toast(`${m.action} registrado ✨`)}
+function openMomentChat(id){closeModals();openChat(id)}
+function currentChat(){return store.chats.find(c=>c.id===current)}
+function renderChatFlags(){let c=currentChat();if(!c)return;let flags=[];if(c.favorite)flags.push('⭐ favorito');if(c.muted)flags.push('🔕 silenciado');if(c.archived)flags.push('📦 arquivado');if(c.blocked)flags.push('⛔ bloqueado');let f=$('#infoFlags');if(f)f.innerHTML=flags.map(x=>`<span class="chip">${x}</span>`).join('')||'<span class="tiny">Conversa ativa</span>';applyWallpaper()}
+function toggleChatFlag(flag){let c=currentChat();if(!c)return;c[flag]=!c[flag];safeSave();renderChatFlags();renderV5();openChatInfo();toast(c[flag]?'Opção ativada':'Opção desativada')}
+function setWallpaper(w){let c=currentChat();if(!c)return;c.wallpaper=w;safeSave();applyWallpaper();toast('🎨 Fundo atualizado')}
+function applyWallpaper(){let c=currentChat(),m=$('#msgs');if(!c||!m)return;m.classList.remove('wallpaperDots','wallpaperGlow','wallpaperClean');m.classList.add('wallpaper'+(c.wallpaper||'glow')[0].toUpperCase()+(c.wallpaper||'glow').slice(1))}
+function openChatInfo(){let c=currentChat();if(!c)return;$('#infoTitle').textContent=c.name;renderChatFlags();let arr=store.messages[current]||[];$('#infoSaved').innerHTML=arr.filter(m=>m.pinned||m.favorite).map(m=>`<div class="card"><div class="tiny">${m.pinned?'📌 Fixada ':''}${m.favorite?'⭐ Favorita':''}</div>${esc(m.text||m.title||'Mídia')}</div>`).join('')||'<p class="tiny">Nenhuma mensagem salva.</p>';$('#infoMedia').innerHTML=arr.filter(m=>m.type==='image').map(m=>`<img src="${m.data}" onclick="openMedia('${m.data}')">`).join('')||'<span class="tiny">Nenhuma foto.</span>';openModal('chatInfoModal')}
+let forwardIndex=null;
+function startForward(i){forwardIndex=i;$('#forwardList').innerHTML=store.chats.filter(c=>c.id!==current&&!c.blocked).map(c=>`<div class="chatrow" onclick="forwardTo(${c.id})"><div class="pic">${esc(c.initial)}</div><div class="main"><b>${esc(c.name)}</b><div class="preview">Encaminhar mensagem</div></div></div>`).join('');openModal('forwardModal')}
+function forwardTo(id){let src=(store.messages[current]||[])[forwardIndex];if(!src)return;let copy=structuredClone(src);copy.side='me';copy.at=now();copy.pinned=false;copy.favorite=false;copy.forwarded=true;(store.messages[id]??=[]).push(copy);let c=store.chats.find(x=>x.id===id);if(c){c.last='↗️ Mensagem encaminhada';c.time='agora'}safeSave();closeModals();renderV5();toast('↗️ Mensagem encaminhada')}
+// adiciona encaminhar ao menu sem reescrever os tipos de mídia
+const drawBeforeForward=drawMsgsV3;drawMsgsV3=function(){drawBeforeForward();document.querySelectorAll('.msgwrap').forEach((el,i)=>{let menu=el.querySelector('.msgmenu');if(menu&&!menu.querySelector('.forwardBtn')){let b=document.createElement('button');b.className='forwardBtn';b.textContent='↗';b.onclick=()=>startForward(i);menu.prepend(b)}});applyWallpaper()};drawMsgs=drawMsgsV3;
+// conversa bloqueada impede envio local
+const sendV5=send;send=function(){let c=currentChat();if(c?.blocked)return toast('⛔ Esta conexão está bloqueada');sendV5()};$('#send').onclick=send;$('#message').onkeydown=e=>{if(e.key==='Enter')send()};
+// lista principal respeita arquivamento e mostra estados
+const baseRender=render;render=function(){baseRender();let q=($('#search')?.value||'').toLowerCase();$('#chatlist').innerHTML=store.chats.filter(c=>!c.archived&&(c.name+' '+(c.user||'')).toLowerCase().includes(q)).sort((a,b)=>Number(b.favorite)-Number(a.favorite)).map(c=>`<div class="chatrow ${c.archived?'archived':''}" onclick="openChat(${c.id})"><div class="pic">${esc(c.initial)}</div><div class="main"><div class="topline"><span class="name">${c.favorite?'⭐ ':''}${esc(c.name)}</span><span class="time">${esc(c.time)}</span></div><div class="preview">${c.muted?'🔕 ':''}${c.blocked?'⛔ ':''}${esc(c.last)}</div></div>${c.unread?`<span class="badge">${c.unread}</span>`:''}</div>`).join('');renderMoments()};
+const openV5=openChat;openChat=function(id){openV5(id);renderChatFlags();applyWallpaper()};
+
+// ===== LOGIN LOCAL NEXO v0.6 =====
+function getLocalUsers(){try{return JSON.parse(localStorage.getItem(AUTH_USERS)||'[]')}catch(e){return []}}
+function setLocalUsers(v){localStorage.setItem(AUTH_USERS,JSON.stringify(v))}
+function cleanUser(v){v=(v||'').trim().toLowerCase().replace(/\s+/g,'');if(v&&!v.startsWith('@'))v='@'+v;return v}
+function authTab(which){$('#loginForm').classList.toggle('on',which==='login');$('#registerForm').classList.toggle('on',which==='register');$('#loginTab').classList.toggle('active',which==='login');$('#registerTab').classList.toggle('active',which==='register');$('#loginError').textContent='';$('#regError').textContent=''}
+function finishSplash(){$('#splash').classList.add('hide');if(activeUser){loadActiveAccount()}else{$('#authscreen').classList.add('on');authTab('login')}}
+function registerLocal(){let name=$('#regName').value.trim(),user=cleanUser($('#regUser').value),pass=$('#regPass').value,pass2=$('#regPass2').value,err=$('#regError');err.textContent='';if(name.length<2)return err.textContent='Informe seu nome.';if(!/^@[a-z0-9._]{3,20}$/.test(user))return err.textContent='Use um @usuário com 3 a 20 letras, números, ponto ou _.';if(pass.length<4)return err.textContent='A senha precisa ter pelo menos 4 caracteres.';if(pass!==pass2)return err.textContent='As senhas não conferem.';let users=getLocalUsers();if(users.some(u=>u.user===user))return err.textContent='Este @usuário já existe neste navegador.';users.push({name,user,password:pass,createdAt:new Date().toISOString()});setLocalUsers(users);activeUser=user;localStorage.setItem(AUTH_SESSION,user);sessionStorage.removeItem(AUTH_SESSION);store=normalize(structuredClone(DEMO));store.profile={name,user,status:'Disponível 🟢'};save();$('#authscreen').classList.remove('on');renderV5();syncAccountUI();toast('✨ Conta criada. Bem-vindo ao NEXO!')}
+function loginLocal(){let user=cleanUser($('#loginUser').value),pass=$('#loginPass').value,err=$('#loginError');err.textContent='';let account=getLocalUsers().find(u=>u.user===user&&u.password===pass);if(!account)return err.textContent='Usuário ou senha incorretos.';activeUser=user;if($('#rememberMe').checked){localStorage.setItem(AUTH_SESSION,user);sessionStorage.removeItem(AUTH_SESSION)}else{sessionStorage.setItem(AUTH_SESSION,user);localStorage.removeItem(AUTH_SESSION)};loadActiveAccount();$('#authscreen').classList.remove('on');toast('Conectado ao NEXO')}
+function loadActiveAccount(){let account=getLocalUsers().find(u=>u.user===activeUser);if(!account){activeUser='';localStorage.removeItem(AUTH_SESSION);sessionStorage.removeItem(AUTH_SESSION);$('#authscreen').classList.add('on');return}store=normalize(JSON.parse(localStorage.getItem(dataKey())||'null')||structuredClone(DEMO));if(!localStorage.getItem(dataKey())){store.profile={name:account.name,user:account.user,status:'Disponível 🟢'};save()}renderV5();syncAccountUI()}
+function syncAccountUI(){let p=store.profile||{};if($('#sessionName'))$('#sessionName').textContent=p.name||'Usuário';if($('#sessionUser'))$('#sessionUser').textContent=p.user||activeUser||''}
+function logoutLocal(){if(!confirm('Sair desta conta do NEXO?'))return;localStorage.removeItem(AUTH_SESSION);sessionStorage.removeItem(AUTH_SESSION);activeUser='';$('#chatpage').classList.remove('on');$('#authscreen').classList.add('on');$('#loginPass').value='';authTab('login');toast('Sessão encerrada')}
+const renderProfileV06=renderProfile;renderProfile=function(){renderProfileV06();syncAccountUI()};
+$('#loginPass').addEventListener('keydown',e=>{if(e.key==='Enter')loginLocal()});$('#regPass2').addEventListener('keydown',e=>{if(e.key==='Enter')registerLocal()});
+renderV5();
+</script>
+
+<script>
+/* NEXO v0.6.2 hotfix: Momentos + logout */
+(function(){
+  function ensureMoments(){
+    if(!window.store && typeof store==='undefined') return;
+    if(!Array.isArray(store.moments)) store.moments=[];
+  }
+
+  window.publishMoment=function(){
+    ensureMoments();
+    const input=document.querySelector('#momentText');
+    const select=document.querySelector('#momentAction');
+    const body=(input?.value||'').trim();
+    if(!body){ if(typeof toast==='function') toast('Escreva seu Momento'); return; }
+    const name=(store.profile&&store.profile.name)||'Usuário';
+    store.moments.push({id:Date.now(),author:name,initial:(name[0]||'U').toUpperCase(),text:body,action:select?.value||'❤️ Reagir',interactions:0,chatId:null,at:'agora'});
+    if(typeof safeSave==='function') safeSave(); else if(typeof save==='function') save();
+    if(typeof closeModals==='function') closeModals();
+    if(typeof renderMoments==='function') renderMoments();
+    input.value='';
+    if(typeof toast==='function') toast('✨ Momento publicado');
+  };
+
+  window.logoutLocal=function(){
+    try{ localStorage.removeItem('nexoSessionV06'); }catch(e){}
+    try{ sessionStorage.removeItem('nexoSessionV06'); }catch(e){}
+    if(typeof activeUser!=='undefined') activeUser='';
+    const chat=document.querySelector('#chatpage');
+    const auth=document.querySelector('#authscreen');
+    if(chat) chat.classList.remove('on');
+    if(auth) auth.classList.add('on');
+    const pass=document.querySelector('#loginPass');
+    if(pass) pass.value='';
+    if(typeof authTab==='function') authTab('login');
+    window.scrollTo(0,0);
+  };
+
+  // Toda troca de conta pode carregar um armazenamento antigo sem o campo moments.
+  const oldLoad=window.loadActiveAccount;
+  if(typeof oldLoad==='function'){
+    window.loadActiveAccount=function(){
+      oldLoad();
+      ensureMoments();
+      if(typeof save==='function') save();
+      if(typeof renderMoments==='function') renderMoments();
+    };
+  }
+  ensureMoments();
+})();
+</script>
+<script>
+/* NEXO v0.6.2 hotfix: Momentos + logout */
+(function(){
+  function ensureMoments(){
+    if(!window.store && typeof store==='undefined') return;
+    if(!Array.isArray(store.moments)) store.moments=[];
+  }
+
+  window.publishMoment=function(){
+    ensureMoments();
+    const input=document.querySelector('#momentText');
+    const select=document.querySelector('#momentAction');
+    const body=(input?.value||'').trim();
+    if(!body){ if(typeof toast==='function') toast('Escreva seu Momento'); return; }
+    const name=(store.profile&&store.profile.name)||'Usuário';
+    store.moments.push({id:Date.now(),author:name,initial:(name[0]||'U').toUpperCase(),text:body,action:select?.value||'❤️ Reagir',interactions:0,chatId:null,at:'agora'});
+    if(typeof safeSave==='function') safeSave(); else if(typeof save==='function') save();
+    if(typeof closeModals==='function') closeModals();
+    if(typeof renderMoments==='function') renderMoments();
+    input.value='';
+    if(typeof toast==='function') toast('✨ Momento publicado');
+  };
+
+  window.logoutLocal=function(){
+    try{ localStorage.removeItem('nexoSessionV06'); }catch(e){}
+    try{ sessionStorage.removeItem('nexoSessionV06'); }catch(e){}
+    if(typeof activeUser!=='undefined') activeUser='';
+    const chat=document.querySelector('#chatpage');
+    const auth=document.querySelector('#authscreen');
+    if(chat) chat.classList.remove('on');
+    if(auth) auth.classList.add('on');
+    const pass=document.querySelector('#loginPass');
+    if(pass) pass.value='';
+    if(typeof authTab==='function') authTab('login');
+    window.scrollTo(0,0);
+  };
+
+  // Toda troca de conta pode carregar um armazenamento antigo sem o campo moments.
+  const oldLoad=window.loadActiveAccount;
+  if(typeof oldLoad==='function'){
+    window.loadActiveAccount=function(){
+      oldLoad();
+      ensureMoments();
+      if(typeof save==='function') save();
+      if(typeof renderMoments==='function') renderMoments();
+    };
+  }
+  ensureMoments();
+})();
+</script>
+
+<script>
+/* NEXO v0.7 - cadastro sem auto-login + enquete real */
+(function(){
+  window.togglePollComposer=function(){
+    const sel=document.querySelector('#momentAction'), box=document.querySelector('#pollComposer');
+    if(!box||!sel)return;
+    box.style.display=sel.value.includes('Enquete')?'block':'none';
+  };
+  window.addPollOption=function(){
+    const box=document.querySelector('#extraPollOptions'); if(!box)return;
+    const total=document.querySelectorAll('.pollOptionInput').length;
+    if(total>=6){ if(typeof toast==='function')toast('Máximo de 6 opções'); return; }
+    const input=document.createElement('input'); input.className='field pollOptionInput'; input.placeholder='Opção '+(total+1); box.appendChild(input);
+  };
+  const oldOpenMoment=window.openMomentComposer;
+  window.openMomentComposer=function(){
+    if(typeof oldOpenMoment==='function') oldOpenMoment();
+    const sel=document.querySelector('#momentAction'); if(sel)sel.selectedIndex=0;
+    document.querySelectorAll('.pollOptionInput').forEach((el,i)=>{ if(i<2)el.value=''; else el.remove(); });
+    const extra=document.querySelector('#extraPollOptions'); if(extra)extra.innerHTML='';
+    togglePollComposer();
+  };
+  window.publishMoment=function(){
+    if(!Array.isArray(store.moments))store.moments=[];
+    const input=document.querySelector('#momentText'), sel=document.querySelector('#momentAction');
+    const body=(input?.value||'').trim(), action=sel?.value||'❤️ Reagir';
+    if(!body){ if(typeof toast==='function')toast('Escreva seu Momento'); return; }
+    let poll=null;
+    if(action.includes('Enquete')){
+      const options=[...document.querySelectorAll('.pollOptionInput')].map(x=>x.value.trim()).filter(Boolean);
+      if(options.length<2){ if(typeof toast==='function')toast('A enquete precisa de pelo menos 2 opções'); return; }
+      poll={options:options.map((text,i)=>({id:i+1,text,votes:0})),voters:{}};
+    }
+    const name=(store.profile&&store.profile.name)||'Usuário';
+    store.moments.push({id:Date.now(),author:name,initial:(name[0]||'U').toUpperCase(),text:body,action,interactions:0,chatId:null,at:'agora',poll});
+    if(typeof safeSave==='function')safeSave(); else if(typeof save==='function')save();
+    if(typeof closeModals==='function')closeModals();
+    renderMoments(); input.value='';
+    if(typeof toast==='function')toast(poll?'📊 Enquete publicada':'✨ Momento publicado');
+  };
+  window.voteMoment=function(momentId,optionId){
+    const m=store.moments.find(x=>x.id===momentId); if(!m||!m.poll)return;
+    if(!m.poll.voters)m.poll.voters={};
+    const voter=(typeof activeUser!=='undefined'&&activeUser)||(store.profile&&store.profile.user)||'local';
+    const prev=m.poll.voters[voter];
+    if(prev===optionId){ if(typeof toast==='function')toast('Você já votou nesta opção'); return; }
+    if(prev){ const old=m.poll.options.find(o=>o.id===prev); if(old)old.votes=Math.max(0,(old.votes||0)-1); }
+    const opt=m.poll.options.find(o=>o.id===optionId); if(!opt)return;
+    opt.votes=(opt.votes||0)+1; m.poll.voters[voter]=optionId;
+    m.interactions=Object.keys(m.poll.voters).length;
+    if(typeof safeSave==='function')safeSave(); else if(typeof save==='function')save();
+    renderMoments(); if(typeof toast==='function')toast('📊 Voto registrado');
+  };
+  window.renderMoments=function(){
+    const el=document.querySelector('#momentsList'); if(!el)return;
+    if(!Array.isArray(store.moments))store.moments=[];
+    const voter=(typeof activeUser!=='undefined'&&activeUser)||(store.profile&&store.profile.user)||'local';
+    el.innerHTML=[...store.moments].reverse().map(m=>{
+      let actionHtml='';
+      if(m.poll&&Array.isArray(m.poll.options)){
+        const total=m.poll.options.reduce((n,o)=>n+(o.votes||0),0), mine=m.poll.voters&&m.poll.voters[voter];
+        actionHtml='<div class="pollBox">'+m.poll.options.map(o=>{const pct=total?Math.round((o.votes||0)*100/total):0;return `<button class="pollChoice ${mine===o.id?'voted':''}" onclick="voteMoment(${m.id},${o.id})"><span class="pollFill" style="width:${pct}%"></span><span class="pollLine"><span>${esc(o.text)}</span><span>${pct}%</span></span></button>`}).join('')+`<div class="pollMeta">${total} ${total===1?'voto':'votos'}${mine?' • Seu voto está destacado':''}</div></div>`;
+      }else{
+        actionHtml=`<div class="momentActions"><button class="action" onclick="interactMoment(${m.id})">${esc(m.action)}</button><span class="tiny">✨ ${m.interactions||0} interações</span>${m.chatId?`<button class="secondary" onclick="openMomentChat(${m.chatId})">💬 Conversar</button>`:''}</div>`;
+      }
+      return `<div class="moment"><div class="momentTop"><div class="miniAvatar">${esc(m.initial||(m.author||'U')[0])}</div><div><b>${esc(m.author||'Usuário')}</b><div class="tiny">${esc(m.at||'agora')}</div></div></div><div class="momentText">${esc(m.text||'')}</div>${actionHtml}</div>`;
+    }).join('')||'<p class="muted">Nenhum Momento ainda.</p>';
+  };
+  window.registerLocal=function(){
+    const name=document.querySelector('#regName').value.trim(), user=cleanUser(document.querySelector('#regUser').value), pass=document.querySelector('#regPass').value, pass2=document.querySelector('#regPass2').value, err=document.querySelector('#regError');
+    err.textContent='';
+    if(name.length<2){err.textContent='Informe seu nome.';return;}
+    if(!/^@[a-z0-9._]{3,20}$/.test(user)){err.textContent='Use um @usuário com 3 a 20 letras, números, ponto ou _.';return;}
+    if(pass.length<4){err.textContent='A senha precisa ter pelo menos 4 caracteres.';return;}
+    if(pass!==pass2){err.textContent='As senhas não conferem.';return;}
+    const users=getLocalUsers(); if(users.some(u=>u.user===user)){err.textContent='Este @usuário já existe neste navegador.';return;}
+    users.push({name,user,password:pass,createdAt:new Date().toISOString()}); setLocalUsers(users);
+    // Prepara os dados locais, mas NÃO cria sessão.
+    const previous=activeUser; activeUser=user; store=normalize(structuredClone(DEMO)); store.profile={name,user,status:'Disponível 🟢'}; save(); activeUser=previous||'';
+    try{localStorage.removeItem(AUTH_SESSION);sessionStorage.removeItem(AUTH_SESSION);}catch(e){}
+    document.querySelector('#loginUser').value=user; document.querySelector('#loginPass').value='';
+    document.querySelector('#regPass').value=''; document.querySelector('#regPass2').value='';
+    authTab('login');
+    const loginErr=document.querySelector('#loginError'); if(loginErr){loginErr.style.color='#63f2c7';loginErr.textContent='✓ Conta criada com sucesso. Agora faça seu login.';}
+  };
+})();
+</script>
+</body></html>
