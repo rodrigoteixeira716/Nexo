@@ -16,13 +16,14 @@ header{position:sticky;top:0;z-index:5;padding:20px 18px 12px;background:#080c20
 /* NEXO v0.7 - enquete real */
 .pollBox{margin-top:12px;display:grid;gap:8px}.pollChoice{position:relative;width:100%;text-align:left;border:1px solid #344478;background:#101936;color:#eef2ff;border-radius:14px;padding:11px 12px;overflow:hidden;cursor:pointer}.pollChoice .pollFill{position:absolute;inset:0 auto 0 0;background:linear-gradient(90deg,#35e8ff22,#f53ad733);pointer-events:none}.pollChoice .pollLine{position:relative;z-index:1;display:flex;justify-content:space-between;gap:10px;font-weight:700}.pollChoice.voted{border-color:#7c67ff;box-shadow:0 0 0 1px #7c67ff55 inset}.pollMeta{font-size:11px;color:#91a3d4;margin-top:4px}.pollComposerHint{font-size:11px;color:#91a3d4}
 </style>
-<link rel="manifest" href="manifest.webmanifest?v=071">
+<link rel="manifest" href="/Nexo/manifest.webmanifest">
 <meta name="theme-color" content="#080d22">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="NEXO">
-<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/Nexo/icons/icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/Nexo/icons/icon-192.png">
 </head><body><div class="app">
 <div class="splash" id="splash"><div class="brand"><div class="mark"><span>N</span></div><div class="letters"><i>N</i><i>E</i><i>X</i><i>O</i></div><div class="tag">TUDO COMEÇA COM UMA CONEXÃO.</div></div></div>
 
@@ -343,7 +344,7 @@ renderV5();
 // NEXO PWA - registro seguro fora dos scripts da aplicação
 if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
   window.addEventListener('load', function () {
-    navigator.serviceWorker.register('./service-worker.js', { updateViaCache: 'none' })
+    navigator.serviceWorker.register('/Nexo/service-worker.js', { scope:'/Nexo/', updateViaCache:'none' })
       .then(function(reg){ reg.update(); })
       .catch(function(err){ console.warn('NEXO SW:', err); });
   });
