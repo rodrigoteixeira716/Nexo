@@ -13,10 +13,19 @@ header{position:sticky;top:0;z-index:5;padding:20px 18px 12px;background:#080c20
 /* NEXO v0.6 - autenticação local */
 .authscreen{position:fixed;inset:0;z-index:95;background:radial-gradient(circle at 50% 5%,#29145e,#070b20 48%,#050817);display:none;align-items:center;justify-content:center;padding:24px;overflow:auto}.authscreen.on{display:flex}.authbox{width:min(100%,430px);background:#0d1430ee;border:1px solid #2e3d73;border-radius:28px;padding:26px;box-shadow:0 24px 80px #0009,0 0 35px #6d43ff22}.authlogo{text-align:center;margin-bottom:24px}.authlogo .mark{width:82px;height:82px;border-radius:22px}.authlogo .mark span{font-size:46px}.authlogo h1{font-size:34px;letter-spacing:8px;margin:15px 0 4px}.authlogo p{font-size:10px;letter-spacing:2px;color:#b9c5ee;margin:0}.authTabs{display:grid;grid-template-columns:1fr 1fr;background:#080d21;border-radius:15px;padding:4px;margin:18px 0}.authTabs button{border:0;border-radius:12px;padding:11px;background:transparent;color:#8795bd;font-weight:700}.authTabs button.active{background:#202b53;color:white}.authForm{display:none}.authForm.on{display:block}.authHint{font-size:11px;line-height:1.5;color:#8795bd;text-align:center;margin-top:14px}.authError{min-height:18px;color:#ff8cae;font-size:12px;margin:6px 2px}.remember{display:flex;gap:8px;align-items:center;font-size:12px;color:#b9c5ee;margin:8px 0 15px}.logoutBtn{width:100%;margin-top:8px}.sessionCard{border:1px solid #2c3966;background:#0d1430;border-radius:18px;padding:14px;margin-top:12px}.sessionCard b{display:block;margin-bottom:4px}
 
-/* NEXO v0.8 - enquete real */
+/* NEXO v0.9 - enquete real */
 .pollBox{margin-top:12px;display:grid;gap:8px}.pollChoice{position:relative;width:100%;text-align:left;border:1px solid #344478;background:#101936;color:#eef2ff;border-radius:14px;padding:11px 12px;overflow:hidden;cursor:pointer}.pollChoice .pollFill{position:absolute;inset:0 auto 0 0;background:linear-gradient(90deg,#35e8ff22,#f53ad733);pointer-events:none}.pollChoice .pollLine{position:relative;z-index:1;display:flex;justify-content:space-between;gap:10px;font-weight:700}.pollChoice.voted{border-color:#7c67ff;box-shadow:0 0 0 1px #7c67ff55 inset}.pollMeta{font-size:11px;color:#91a3d4;margin-top:4px}.pollComposerHint{font-size:11px;color:#91a3d4}
 
 .nexoTouchWave{position:fixed;inset:0;pointer-events:none;z-index:9998;display:grid;place-items:center}.nexoTouchWave:before,.nexoTouchWave:after{content:"";position:absolute;width:95px;height:95px;border:2px solid #55efff;border-radius:50%;box-shadow:0 0 25px #55efff,0 0 55px #a94cff;animation:nexoWave 1s ease-out forwards}.nexoTouchWave:after{animation-delay:.14s}@keyframes nexoWave{0%{opacity:.9;transform:scale(.45)}100%{opacity:0;transform:scale(5)}}.nexoTouchReceive{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:10001;width:min(88vw,390px);padding:24px;border-radius:28px;background:linear-gradient(145deg,#0c1532,#19113a);border:1px solid #4eeaff;box-shadow:0 0 35px #31dfff55,0 0 80px #b34dff44;text-align:center}.nexoTouchReceive .bell{font-size:55px;display:block;animation:nexoBell .6s ease 2}@keyframes nexoBell{0%,100%{transform:rotate(0)}25%{transform:rotate(-14deg) scale(1.12)}70%{transform:rotate(14deg) scale(1.12)}}.nexoShake{animation:nexoShake .55s ease}@keyframes nexoShake{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}.touchKinds{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}.touchKind{padding:14px 9px;border-radius:17px;border:1px solid #2e4073;background:#111b3d;color:#eef3ff;text-align:left}.touchKind b{display:block;margin-bottom:3px}.touchKind small{color:#9dadd6}.touchCooldown{font-size:12px;color:#91a3cf;margin-top:10px}
+
+/* NEXO v0.9 — Identidade, Conexões e Privacidade */
+.nx09-card{background:linear-gradient(145deg,#101a3a,#15113a);border:1px solid #293968;border-radius:22px;padding:16px;margin:12px 0}
+.nx09-profile{display:flex;align-items:center;gap:14px}.nx09-avatar{width:72px;height:72px;border-radius:24px;object-fit:cover;background:linear-gradient(135deg,#31dcff,#8c55ff,#ff39c8);display:grid;place-items:center;font-weight:900;font-size:25px;color:white;box-shadow:0 0 24px #6c5cff55}.nx09-handle{color:#65eaff;font-size:13px}.nx09-bio{color:#aebce3;margin-top:5px;font-size:13px}
+.nx09-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.nx09-mini{border:1px solid #293968;background:#0d1634;border-radius:17px;padding:13px;color:#eef3ff;text-align:left}.nx09-mini b{display:block;margin-bottom:4px}.nx09-mini small{color:#93a4d0}
+.nx09-setting{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid #26345d}.nx09-setting:last-child{border-bottom:0}.nx09-setting span{display:block}.nx09-setting small{color:#8fa1cc}.nx09-select{background:#0b1430;color:#eef3ff;border:1px solid #314477;border-radius:12px;padding:8px;max-width:145px}
+.nx09-connect{display:flex;align-items:center;gap:11px;padding:11px;border:1px solid #293968;border-radius:17px;margin:8px 0;background:#0d1634}.nx09-connect .av{width:43px;height:43px;border-radius:15px;background:linear-gradient(135deg,#2bdfff,#8d55ff);display:grid;place-items:center;font-weight:800}.nx09-connect .grow{flex:1}.nx09-connect small{color:#93a4d0}.nx09-badge{font-size:11px;border:1px solid #44598e;border-radius:99px;padding:4px 8px;color:#b9c8ed}
+.nx09-qr{width:210px;height:210px;margin:12px auto;background:white;padding:12px;border-radius:22px;display:grid;grid-template-columns:repeat(21,1fr);grid-template-rows:repeat(21,1fr);gap:1px}.nx09-qr i{background:#fff}.nx09-qr i.on{background:#090d21}.nx09-center{text-align:center}.nx09-tabs{display:flex;gap:7px;overflow:auto;margin:8px 0 14px}.nx09-tabs button{white-space:nowrap}
+.nx09-toastline{padding:10px 12px;border-radius:14px;background:#0d1735;border:1px solid #2d4072;margin:8px 0;color:#b9c8ed}
 </style>
 <link rel="manifest" href="/Nexo/manifest.webmanifest">
 <meta name="theme-color" content="#080d22">
@@ -255,7 +264,7 @@ renderV5();
 </script>
 
 <script>
-/* NEXO v0.8 - cadastro sem auto-login + enquete real */
+/* NEXO v0.9 - cadastro sem auto-login + enquete real */
 (function(){
   window.togglePollComposer=function(){
     const sel=document.querySelector('#momentAction'), box=document.querySelector('#pollComposer');
@@ -366,4 +375,51 @@ window.receiveNexoTouch=(from,type='normal')=>{let x=L[type]||L.normal;vib(type=
 function esc(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function upgrade(){document.querySelectorAll('button').forEach(b=>{let t=(b.textContent||'').toLowerCase();if((t.includes('nexo toque')||t.trim()==='🔔')&&!b.dataset.touch2){b.dataset.touch2='1';b.onclick=e=>{e.preventDefault();e.stopPropagation();openNexoTouch()}}})}upgrade();new MutationObserver(upgrade).observe(document.body,{childList:true,subtree:true});
 })();
-</script></body></html>
+</script>
+<div class="modal" id="nx09Modal"><div class="dialog" style="max-height:86vh;overflow:auto">
+  <div style="display:flex;justify-content:space-between;align-items:center"><h2 id="nx09Title">👤 Meu NEXO</h2><button class="secondary" onclick="closeNx09()">✕</button></div>
+  <div class="nx09-tabs">
+    <button class="secondary" onclick="nx09Page('profile')">👤 Perfil</button>
+    <button class="secondary" onclick="nx09Page('connections')">🤝 Conexões</button>
+    <button class="secondary" onclick="nx09Page('qr')">▦ QR</button>
+    <button class="secondary" onclick="nx09Page('privacy')">🔐 Privacidade</button>
+    <button class="secondary" onclick="nx09Page('settings')">⚙️ Config.</button>
+  </div>
+  <div id="nx09Body"></div>
+</div></div>
+
+<script>
+(function(){
+const KEY='nexoV09Prefs';
+const $=x=>document.querySelector(x);
+function load(){let d={handle:'@meunexo',bio:'Disponível no NEXO ✨',photo:'',connections:[{name:'Mariana',handle:'@mariana',fav:true},{name:'Lucas',handle:'@lucas',fav:false}],requests:[{name:'Ana',handle:'@ana'}],privacy:{photo:'conexoes',moments:'conexoes',lastSeen:'conexoes',read:true,touch:'conexoes'},notifications:true,preview:true,theme:'nexo'};try{return Object.assign(d,JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(e){return d}}
+let D=load(); function save(){localStorage.setItem(KEY,JSON.stringify(D))}
+function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function pname(){try{return store.profile.name||'Rodrigo'}catch(e){return 'Rodrigo'}}
+window.openNx09=function(page='profile'){let m=$('#nx09Modal');if(typeof openModal==='function')openModal('nx09Modal');else m?.classList.add('on');nx09Page(page)}
+window.closeNx09=function(){let m=$('#nx09Modal');m?.classList.remove('on');if(typeof closeModals==='function')closeModals()}
+window.nx09Page=function(page){
+ let B=$('#nx09Body'),T=$('#nx09Title');if(!B)return;
+ if(page==='profile'){T.textContent='👤 Meu NEXO';let av=D.photo?'<img class="nx09-avatar" src="'+D.photo+'">':'<div class="nx09-avatar">'+esc(pname()[0]||'N')+'</div>';B.innerHTML='<div class="nx09-card nx09-profile">'+av+'<div><h3 style="margin:0">'+esc(pname())+'</h3><div class="nx09-handle">'+esc(D.handle)+'</div><div class="nx09-bio">'+esc(D.bio)+'</div></div></div><div class="nx09-card"><label>Seu @usuário</label><input id="nxHandle" value="'+esc(D.handle)+'" placeholder="@usuario"><label>Bio / recado</label><input id="nxBio" value="'+esc(D.bio)+'" maxlength="80"><label>Foto de perfil</label><input id="nxPhoto" type="file" accept="image/*"><div class="row"><button class="action" onclick="nxSaveProfile()">Salvar perfil</button><button class="secondary" onclick="nx09Page(\'qr\')">▦ Meu QR</button></div></div>'}
+ if(page==='connections'){T.textContent='🤝 Conexões';B.innerHTML='<div class="nx09-card"><h3>Adicionar conexão</h3><div class="row"><input id="nxSearchUser" placeholder="@usuario"><button class="action" onclick="nxAddConnection()">Adicionar</button></div><small class="muted">Nesta fase a busca é simulada localmente. No Supabase ela encontrará usuários reais.</small></div>'+(D.requests.length?'<div class="nx09-card"><h3>Solicitações</h3>'+D.requests.map((x,i)=>'<div class="nx09-connect"><div class="av">'+esc(x.name[0])+'</div><div class="grow"><b>'+esc(x.name)+'</b><small>'+esc(x.handle)+'</small></div><button class="action" onclick="nxAccept('+i+')">Aceitar</button><button class="secondary" onclick="nxReject('+i+')">✕</button></div>').join('')+'</div>':'')+'<div class="nx09-card"><h3>Minhas conexões</h3>'+D.connections.map((x,i)=>'<div class="nx09-connect"><div class="av">'+esc(x.name[0])+'</div><div class="grow"><b>'+esc(x.name)+'</b><small>'+esc(x.handle)+'</small></div><button class="secondary" onclick="nxFav('+i+')">'+(x.fav?'★':'☆')+'</button><button class="secondary" onclick="nxRemove('+i+')">Remover</button></div>').join('')+'</div>'}
+ if(page==='qr'){T.textContent='▦ Meu QR NEXO';B.innerHTML='<div class="nx09-card nx09-center"><h3>'+esc(pname())+'</h3><div class="nx09-handle">'+esc(D.handle)+'</div><div class="nx09-qr" id="nxQR"></div><p class="muted">Mostre este código para compartilhar sua identidade NEXO.</p><button class="action" onclick="nxCopyHandle()">Copiar '+esc(D.handle)+'</button></div>';setTimeout(drawQR,0)}
+ if(page==='privacy'){T.textContent='🔐 Privacidade';let sel=(id,label,val,opts)=>'<div class="nx09-setting"><span><b>'+label+'</b><small>Escolha quem pode acessar</small></span><select class="nx09-select" onchange="nxPrivacy(\''+id+'\',this.value)">'+opts.map(o=>'<option value="'+o[0]+'" '+(val===o[0]?'selected':'')+'>'+o[1]+'</option>').join('')+'</select></div>';let o=[['todos','Todos'],['conexoes','Conexões'],['ninguem','Ninguém']];B.innerHTML='<div class="nx09-card">'+sel('photo','Foto de perfil',D.privacy.photo,o)+sel('moments','Momentos',D.privacy.moments,o)+sel('lastSeen','Visto por último',D.privacy.lastSeen,o)+sel('touch','Quem pode tocar meu NEXO',D.privacy.touch,o)+'<div class="nx09-setting"><span><b>Confirmação de leitura</b><small>Mostrar quando você leu</small></span><input type="checkbox" '+(D.privacy.read?'checked':'')+' onchange="nxPrivacy(\'read\',this.checked)"></div></div>'}
+ if(page==='settings'){T.textContent='⚙️ Configurações';B.innerHTML='<div class="nx09-grid"><button class="nx09-mini" onclick="nx09Page(\'profile\')"><b>👤 Conta</b><small>Perfil e identidade</small></button><button class="nx09-mini" onclick="nx09Page(\'privacy\')"><b>🔐 Privacidade</b><small>Controle seus dados</small></button><button class="nx09-mini" onclick="nxToggle(\'notifications\')"><b>🔔 Notificações</b><small>'+(D.notifications?'Ativadas':'Desativadas')+'</small></button><button class="nx09-mini" onclick="nxToggle(\'preview\')"><b>💬 Prévia</b><small>'+(D.preview?'Visível':'Oculta')+'</small></button><button class="nx09-mini" onclick="openNexoTouch()"><b>🔔 NEXO Toque</b><small>Testar Toque 2.0</small></button><button class="nx09-mini" onclick="nxAbout()"><b>✨ Sobre</b><small>NEXO v0.9</small></button></div><div class="nx09-toastline">☁️ Dados ainda permanecem neste aparelho via LocalStorage.</div>'}
+}
+window.nxSaveProfile=async function(){let h=$('#nxHandle').value.trim(),b=$('#nxBio').value.trim();if(h&&!h.startsWith('@'))h='@'+h;D.handle=h||'@meunexo';D.bio=b;let f=$('#nxPhoto').files[0];if(f){D.photo=await new Promise(ok=>{let r=new FileReader;r.onload=()=>ok(r.result);r.readAsDataURL(f)})}save();if(typeof toast==='function')toast('👤 Perfil NEXO atualizado');nx09Page('profile')}
+window.nxAddConnection=function(){let h=$('#nxSearchUser').value.trim();if(!h)return;if(!h.startsWith('@'))h='@'+h;if(D.connections.some(x=>x.handle.toLowerCase()===h.toLowerCase())){if(typeof toast==='function')toast('Essa conexão já existe');return}D.connections.push({name:h.slice(1)||'Conexão',handle:h,fav:false});save();if(typeof toast==='function')toast('🤝 Conexão adicionada na simulação');nx09Page('connections')}
+window.nxAccept=i=>{let x=D.requests.splice(i,1)[0];D.connections.push({...x,fav:false});save();nx09Page('connections')}
+window.nxReject=i=>{D.requests.splice(i,1);save();nx09Page('connections')}
+window.nxFav=i=>{D.connections[i].fav=!D.connections[i].fav;save();nx09Page('connections')}
+window.nxRemove=i=>{D.connections.splice(i,1);save();nx09Page('connections')}
+window.nxPrivacy=(k,v)=>{D.privacy[k]=v;save();if(typeof toast==='function')toast('🔐 Privacidade atualizada')}
+window.nxToggle=k=>{D[k]=!D[k];save();nx09Page('settings')}
+window.nxAbout=()=>{if(typeof toast==='function')toast('✨ NEXO v0.9 — Tudo começa com uma conexão.')}
+window.nxCopyHandle=async()=>{try{await navigator.clipboard.writeText(D.handle);if(typeof toast==='function')toast('Copiado: '+D.handle)}catch(e){}}
+function drawQR(){let e=$('#nxQR');if(!e)return;let seed=0,txt=D.handle+'|NEXO';for(let c of txt)seed=(seed*31+c.charCodeAt(0))>>>0;let bits=[];for(let y=0;y<21;y++)for(let x=0;x<21;x++){seed=(1664525*seed+1013904223)>>>0;bits.push(((seed>>>28)&1)===1)}function finder(ox,oy){for(let y=0;y<7;y++)for(let x=0;x<7;x++){let on=x===0||y===0||x===6||y===6||(x>=2&&x<=4&&y>=2&&y<=4);bits[(oy+y)*21+ox+x]=on}}finder(0,0);finder(14,0);finder(0,14);e.innerHTML=bits.map(v=>'<i class="'+(v?'on':'')+'"></i>').join('')}
+function upgrade(){document.querySelectorAll('button').forEach(b=>{let t=(b.textContent||'').trim().toLowerCase();if(!b.dataset.nx09&&(t==='perfil'||t.includes('configura'))){b.dataset.nx09='1';b.addEventListener('dblclick',()=>openNx09(t==='perfil'?'profile':'settings'))}})}
+upgrade();new MutationObserver(upgrade).observe(document.body,{childList:true,subtree:true});
+window.NEXO09={open:openNx09};
+})();
+</script>
+<button id="nx09Access" onclick="openNx09('profile')" title="Meu NEXO v0.9" style="position:fixed;right:18px;bottom:82px;z-index:8000;width:50px;height:50px;border-radius:18px;border:1px solid #48ddff;background:linear-gradient(135deg,#1adfff,#7756ff,#ef35c8);color:white;font-size:21px;box-shadow:0 0 22px #54dfff55">👤</button></body></html>
