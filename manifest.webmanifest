@@ -2,13 +2,11 @@
   "id": "/Nexo/",
   "name": "NEXO — Tudo começa com uma conexão",
   "short_name": "NEXO",
-  "description": "NEXO — Tudo começa com uma conexão.",
   "start_url": "/Nexo/",
   "scope": "/Nexo/",
   "display": "standalone",
   "background_color": "#05091a",
   "theme_color": "#080d22",
-  "orientation": "portrait-primary",
   "icons": [
     {
       "src": "/Nexo/icon-192.png",
