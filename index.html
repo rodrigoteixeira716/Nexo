@@ -82,10 +82,20 @@ header{position:sticky;top:0;z-index:5;padding:20px 18px 12px;background:#080c20
 .nxMsgActions{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
 .nxMsgAction{border:1px solid #31426e;background:#101936;color:#fff;border-radius:15px;padding:11px 5px;font-size:12px;min-height:66px}
 .nxMsgAction span{display:block;font-size:23px;margin-bottom:5px}.nxMsgAction.danger{color:#ff9da8;border-color:#633443}
-/* NEXO Dicas */
-#nxTipOverlay{position:fixed;inset:0;z-index:9997;background:#02061588;display:none}#nxTipOverlay.on{display:block}
-#nxTipBubble{position:fixed;z-index:9998;display:none;width:min(300px,calc(100vw - 28px));padding:15px 16px;border:1px solid #5366ff;background:linear-gradient(145deg,#111936,#191342);box-shadow:0 16px 50px #000b,0 0 24px #695cff44;border-radius:18px;color:#fff}
-#nxTipBubble.on{display:block;animation:nxTipIn .24s ease-out}#nxTipBubble h4{margin:0 0 6px}#nxTipBubble p{margin:0;color:#cbd4f6;font-size:13px;line-height:1.45}.nxTipTarget{position:relative;z-index:9999!important;box-shadow:0 0 0 3px #7c6cff,0 0 28px #6e5cff99!important;border-radius:16px}@keyframes nxTipIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* NEXO v1.3.3 — NEXO Dicas, destaque + seta */
+#nxTipOverlay{position:fixed;inset:0;z-index:9990;background:#020617b8;display:none;pointer-events:none}
+#nxTipOverlay.on{display:block}
+.nxTipTarget{position:relative!important;z-index:9992!important;background:#111833!important;border-radius:18px!important;box-shadow:0 0 0 2px #36cfff,0 0 0 4px #8c4dff,0 0 32px #43a9ffcc!important}
+#nxTipArrow{position:fixed;z-index:9994;display:none;width:74px;height:82px;pointer-events:none;filter:drop-shadow(0 0 7px #41baff)}
+#nxTipArrow.on{display:block}
+#nxTipArrow svg{width:100%;height:100%;overflow:visible}
+#nxTipBubble{position:fixed;z-index:9993;display:none;width:min(330px,calc(100vw - 28px));padding:17px;border:1px solid #725cff;background:linear-gradient(145deg,#111a3c,#21124a);box-shadow:0 18px 55px #000c,0 0 28px #6054ff66;border-radius:22px;color:#fff}
+#nxTipBubble.on{display:block;animation:nxTipIn .22s ease-out}
+#nxTipBubble h4{margin:0 0 7px;font-size:17px}#nxTipBubble p{margin:0;color:#d7dcf4;font-size:13.5px;line-height:1.5}
+#nxTipBubble .row{margin-top:14px;justify-content:flex-end}
+#nxTipBubble button{background:linear-gradient(135deg,#168cff,#c83cff);border:0;color:#fff;font-weight:700}
+@keyframes nxTipIn{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
 </style>
 <link rel="manifest" href="/Nexo/manifest.webmanifest">
 <meta name="theme-color" content="#080d22">
@@ -788,13 +798,40 @@ window.nxMsgDelete=()=>{let i=menuIndex;if(!Number.isInteger(i)||!confirm('Exclu
  }
  setTimeout(nxRenderArchivedEntry,300);
 })();
-</script><div id="nxTipOverlay"></div><div id="nxTipBubble"><h4>💡 Organize suas conversas</h4><p>Segure uma conversa por alguns instantes para arquivá-la. Depois, encontre-a em <b>📥 Arquivadas</b> e restaure quando quiser.</p><div class="row" style="margin-top:12px;justify-content:flex-end"><button class="secondary" onclick="nxDismissTip()">Entendi ✓</button></div></div><script>
+</script><div id="nxTipOverlay"></div>
+<div id="nxTipArrow" aria-hidden="true"><svg viewBox="0 0 74 82"><path d="M62 76 C42 68 27 53 23 27" fill="none" stroke="#4ab7ff" stroke-width="6" stroke-linecap="round"/><path d="M10 35 L23 19 L35 36" fill="none" stroke="#4ab7ff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div id="nxTipBubble" role="dialog" aria-label="NEXO Dica"><h4>💡 Organize suas conversas</h4><p>Segure uma conversa por alguns instantes para arquivá-la. Depois, encontre-a em <b>📥 Arquivadas</b> e restaure quando quiser.</p><div class="row"><button onclick="nxDismissTip()">Entendi ✓</button></div></div><script>
 (function(){
 const user=()=>String(localStorage.getItem('nexoSessionV06')||'local').replace(/[^a-zA-Z0-9@._-]/g,'_').slice(0,80);
 const key=()=>`nexoTipsV133_${user()}_archiveConversation`;
-function pos(row){let b=document.getElementById('nxTipBubble'),r=row.getBoundingClientRect();b.style.left=Math.max(14,Math.min(innerWidth-314,r.left+12))+'px';let y=r.bottom+12;if(y+180>innerHeight)y=Math.max(14,r.top-190);b.style.top=y+'px'}
-window.nxDismissTip=()=>{localStorage.setItem(key(),'1');document.querySelector('.nxTipTarget')?.classList.remove('nxTipTarget');document.getElementById('nxTipOverlay')?.classList.remove('on');document.getElementById('nxTipBubble')?.classList.remove('on')};
-window.nxMaybeShowArchiveTip=()=>{if(localStorage.getItem(key())==='1'||document.getElementById('chatpage')?.classList.contains('on'))return;let row=document.querySelector('#chatlist .chatrow');if(!row)return;row.classList.add('nxTipTarget');document.getElementById('nxTipOverlay').classList.add('on');document.getElementById('nxTipBubble').classList.add('on');pos(row)};
-addEventListener('resize',()=>{let r=document.querySelector('.nxTipTarget');if(r)pos(r)});setTimeout(nxMaybeShowArchiveTip,1100);
+function layout(){
+ const row=document.querySelector('#chatlist .chatrow.nxTipTarget'),b=document.getElementById('nxTipBubble'),a=document.getElementById('nxTipArrow');
+ if(!row||!b||!a)return;
+ const r=row.getBoundingClientRect(),bw=Math.min(330,innerWidth-28);
+ let left=Math.max(14,Math.min(innerWidth-bw-14,r.left+Math.max(0,r.width-bw)));
+ let top=r.bottom+112;
+ if(top+205>innerHeight)top=Math.max(14,r.bottom+86);
+ b.style.left=left+'px';b.style.top=top+'px';
+ const ax=Math.max(18,Math.min(innerWidth-92,r.left+r.width*.50-28));
+ a.style.left=ax+'px';a.style.top=(r.bottom+4)+'px';
+}
+window.nxDismissTip=()=>{
+ localStorage.setItem(key(),'1');
+ document.querySelector('.nxTipTarget')?.classList.remove('nxTipTarget');
+ document.getElementById('nxTipOverlay')?.classList.remove('on');
+ document.getElementById('nxTipArrow')?.classList.remove('on');
+ document.getElementById('nxTipBubble')?.classList.remove('on');
+};
+window.nxMaybeShowArchiveTip=()=>{
+ if(localStorage.getItem(key())==='1'||document.getElementById('chatpage')?.classList.contains('on'))return;
+ const row=document.querySelector('#chatlist .chatrow');if(!row)return;
+ row.classList.add('nxTipTarget');
+ document.getElementById('nxTipOverlay').classList.add('on');
+ document.getElementById('nxTipArrow').classList.add('on');
+ document.getElementById('nxTipBubble').classList.add('on');
+ requestAnimationFrame(layout);
+};
+addEventListener('resize',layout);addEventListener('orientationchange',()=>setTimeout(layout,150));
+setTimeout(nxMaybeShowArchiveTip,1100);
 })();
 </script></body></html>
