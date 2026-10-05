@@ -1,4 +1,4 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#070b20"><title>NEXO v1.4</title><style>
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#070b20"><title>NEXO v1.4.1</title><style>
 *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:#050817;color:#f7f8ff}button,input{font:inherit}.app{max-width:520px;margin:auto;min-height:100vh;background:radial-gradient(circle at 70% 0,#23125b55,transparent 35%),#080c20}.splash{position:fixed;inset:0;z-index:99;background:radial-gradient(circle at center,#1b1554,#050817 65%);display:grid;place-items:center;transition:.7s}.splash.hide{opacity:0;visibility:hidden}.brand{text-align:center}.mark{width:116px;height:116px;margin:auto;border:2px solid #36eaff;border-radius:28px;box-shadow:0 0 30px #4a40ff88,inset 0 0 24px #e62dff33;display:grid;place-items:center;animation:pop .8s ease}.mark span{font-size:64px;font-weight:900;background:linear-gradient(135deg,#41efff,#5870ff,#ff42df);-webkit-background-clip:text;color:transparent}.letters{font-size:43px;font-weight:900;letter-spacing:10px;margin:22px 0 7px}.letters i{font-style:normal;opacity:0;animation:letter .4s forwards}.letters i:nth-child(2){animation-delay:.15s}.letters i:nth-child(3){animation-delay:.3s}.letters i:nth-child(4){animation-delay:.45s}.tag{font-size:11px;letter-spacing:3px;color:#ccd4ff;opacity:0;animation:fade .7s .8s forwards}@keyframes pop{from{transform:scale(.3) rotate(-12deg);opacity:0}}@keyframes letter{to{opacity:1}}@keyframes fade{to{opacity:1}}
 header{position:sticky;top:0;z-index:5;padding:20px 18px 12px;background:#080c20dd;backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:space-between}.logo{font-size:24px;font-weight:900;letter-spacing:4px}.logo b{background:linear-gradient(90deg,#35e8ff,#ff4cdd);-webkit-background-clip:text;color:transparent}.avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#34e8ff,#7d42ff);display:grid;place-items:center;font-weight:800}.content{padding:8px 16px 92px}.search{background:#11172f;border:1px solid #242c50;border-radius:16px;padding:13px 15px;color:white;width:100%;outline:none}.stories{display:flex;gap:14px;overflow:auto;padding:18px 0}.story{text-align:center;font-size:11px;min-width:62px}.story .ring{width:58px;height:58px;border-radius:50%;padding:2px;background:linear-gradient(135deg,#31eaff,#fd3fdb);margin:auto auto 6px}.story .ring div{height:100%;border-radius:50%;background:#17203f;display:grid;place-items:center;font-weight:800}.section{display:flex;justify-content:space-between;align-items:center;margin:5px 0 10px}.section h2{font-size:17px;margin:0}.muted{color:#8e99bd}.chatrow{display:flex;gap:12px;padding:13px 2px;border-bottom:1px solid #171d36;cursor:pointer}.chatrow .pic{width:50px;height:50px;flex:0 0 50px;border-radius:17px;background:linear-gradient(135deg,#29365f,#703dc1);display:grid;place-items:center;font-weight:800}.chatrow .main{min-width:0;flex:1}.topline{display:flex;justify-content:space-between}.name{font-weight:750}.time{font-size:11px;color:#7883a6}.preview{font-size:13px;color:#929cbb;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:5px}.badge{background:#5a4cff;border-radius:20px;padding:2px 7px;font-size:10px}.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);height:76px;background:#0d1229ee;backdrop-filter:blur(20px);border-top:1px solid #222b4b;display:flex;justify-content:space-around;align-items:center;z-index:8}.nav button{background:none;border:0;color:#7f89aa;font-size:11px}.nav button span{display:block;font-size:21px;margin-bottom:3px}.nav .active{color:#5beaff}.plus{width:54px!important;height:54px;border-radius:18px!important;background:linear-gradient(135deg,#24dfff,#7549ff,#ff3bd7)!important;color:white!important;font-size:27px!important;box-shadow:0 7px 25px #7048ff55}
 .page{display:none}.page.on{display:block}.chatpage{position:fixed;inset:0;z-index:20;background:#070b1c;max-width:520px;margin:auto;display:none;flex-direction:column}.chatpage.on{display:flex}.chathead{display:flex;gap:10px;align-items:center;padding:14px;border-bottom:1px solid #202744}.back{border:0;background:none;color:white;font-size:25px}.online{font-size:11px;color:#52e3bb}.msgs{flex:1;overflow:auto;padding:18px;background:radial-gradient(circle at 20% 20%,#18204b55,transparent 28%)}.bubble{max-width:80%;padding:11px 13px;border-radius:18px;margin:8px 0;font-size:14px;line-height:1.35}.them{background:#151c36;border-bottom-left-radius:5px}.me{background:linear-gradient(135deg,#2c56c7,#743bd0);margin-left:auto;border-bottom-right-radius:5px}.special{border:1px solid #4e5c91;background:#111831}.special strong{display:block;color:#61e7ff;margin-bottom:5px}.composer{padding:10px 12px 14px;display:flex;gap:8px;background:#0b1026}.composer input{flex:1;border:1px solid #273053;background:#141b35;color:white;padding:12px 14px;border-radius:18px;outline:none}.round{border:0;background:#222b50;color:white;border-radius:16px;width:46px}.send{background:linear-gradient(135deg,#29dff2,#7046ed)}.sheet{position:fixed;inset:0;z-index:50;background:#0009;display:none;align-items:end;justify-content:center}.sheet.on{display:flex}.panel{width:min(520px,100%);background:#11172e;border-radius:28px 28px 0 0;padding:20px 18px 30px}.handle{width:45px;height:4px;background:#475170;border-radius:9px;margin:0 auto 18px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.tool{text-align:center;font-size:11px;color:#c3c9df}.tool button{width:56px;height:56px;border:0;border-radius:18px;background:#20294c;color:white;font-size:24px;margin-bottom:6px}.card{padding:16px;border:1px solid #252e50;border-radius:20px;background:#10162d;margin:12px 0}.card h3{margin:0 0 5px}.action{border:0;border-radius:14px;background:linear-gradient(135deg,#2bdcec,#6c4bf3);color:white;padding:11px 14px;font-weight:700}.profileHero{text-align:center;padding:25px}.bigavatar{width:90px;height:90px;border-radius:30px;margin:auto;background:linear-gradient(135deg,#36e9ff,#7b45ff,#fa3bd9);display:grid;place-items:center;font-size:32px;font-weight:900}.toast{position:fixed;top:85px;left:50%;transform:translateX(-50%) translateY(-20px);z-index:80;background:#171e3c;border:1px solid #4c5a91;border-radius:16px;padding:12px 16px;opacity:0;transition:.3s;pointer-events:none;white-space:nowrap}.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -130,23 +130,16 @@ html[data-nx-palette] .nxAppearanceChoices button.on{box-shadow:0 0 0 2px var(--
 .nxThemeGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}.nxThemeCard{border:1px solid #39456d;background:#111936;color:#fff;border-radius:18px;padding:12px;text-align:left;min-height:86px}.nxThemeCard.on{box-shadow:0 0 0 2px var(--nxA),0 0 22px var(--nxGlow);border-color:var(--nxA)}.nxThemeSwatch{height:24px;border-radius:999px;margin-bottom:9px}.nxThemeCard small{display:block;opacity:.7;margin-top:3px}
 html[data-nx-theme="light"] .nxThemeCard{background:#fff;color:#18233d;border-color:#d4deed}
 
-/* NEXO v1.4 — Central de Notificações */
+/* NEXO v1.4.1 — Central de Notificações, botão isolado do NEXO Toque */
 .nxHeaderActions{display:flex;align-items:center;gap:10px}
-.nxNotifBell{position:relative;width:42px;height:42px;border-radius:15px;border:1px solid #2d3965;background:#121a36;color:#eef4ff;font-size:20px;display:grid;place-items:center;cursor:pointer}
-#nxNotifBadge{display:none;position:absolute;right:-4px;top:-5px;min-width:18px;height:18px;padding:0 5px;border-radius:99px;background:#ff3e7b;color:#fff;font-size:10px;font-weight:900;line-height:18px;border:2px solid #080c20}
-#nxNotifBadge.on{display:block}
+.nxNotifBellV141{position:relative;width:42px;height:42px;border-radius:15px;border:1px solid #2d3965;background:#121a36;color:#eef4ff;font-size:20px;display:grid;place-items:center;cursor:pointer;z-index:20;touch-action:manipulation}
+#nxNotifBadgeV141{display:none;position:absolute;right:-4px;top:-5px;min-width:18px;height:18px;padding:0 5px;border-radius:99px;background:#ff3e7b;color:#fff;font-size:10px;font-weight:900;line-height:18px;border:2px solid #080c20}
+#nxNotifBadgeV141.on{display:block}
 .nxNotifToolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:4px 0 12px}
-.nxNotifList{display:grid;gap:9px}
-.nxNotifItem{display:flex;gap:11px;align-items:flex-start;padding:12px;border:1px solid #29365f;border-radius:17px;background:#0e1632;cursor:pointer;position:relative}
-.nxNotifItem.unread{border-color:var(--nxA,#35e8ff);box-shadow:0 0 0 1px color-mix(in srgb,var(--nxA,#35e8ff) 28%,transparent) inset}
-.nxNotifIcon{width:42px;height:42px;flex:0 0 42px;border-radius:14px;background:linear-gradient(135deg,var(--nxA,#35e8ff),var(--nxB,#c43cff));display:grid;place-items:center;font-size:19px}
-.nxNotifBody{flex:1;min-width:0}.nxNotifTitle{font-weight:800;font-size:13px}.nxNotifText{font-size:12px;color:#9aa8cf;margin-top:3px;line-height:1.35}.nxNotifTime{font-size:10px;color:#7f8caf;margin-top:5px}
-.nxNotifDot{width:8px;height:8px;border-radius:50%;background:var(--nxA,#35e8ff);margin-top:7px;box-shadow:0 0 10px var(--nxGlow,#735cff)}
-.nxNotifEmpty{text-align:center;padding:28px 12px;color:#8995ba}
-html[data-nx-theme="light"] .nxNotifBell{background:#fff;color:#18233d;border-color:#d5e0ef}
-html[data-nx-theme="light"] #nxNotifBadge{border-color:#f8fbff}
-html[data-nx-theme="light"] .nxNotifItem{background:#fff;border-color:#d6e0ee}
-html[data-nx-theme="light"] .nxNotifText,html[data-nx-theme="light"] .nxNotifTime{color:#687793}
+.nxNotifList{display:grid;gap:9px}.nxNotifItem{display:flex;gap:11px;align-items:flex-start;padding:12px;border:1px solid #29365f;border-radius:17px;background:#0e1632;cursor:pointer}
+.nxNotifItem.unread{border-color:var(--nxA,#35e8ff)}.nxNotifIcon{width:42px;height:42px;flex:0 0 42px;border-radius:14px;background:linear-gradient(135deg,var(--nxA,#35e8ff),var(--nxB,#c43cff));display:grid;place-items:center;font-size:19px}
+.nxNotifBody{flex:1;min-width:0}.nxNotifTitle{font-weight:800;font-size:13px}.nxNotifText{font-size:12px;color:#9aa8cf;margin-top:3px;line-height:1.35}.nxNotifTime{font-size:10px;color:#7f8caf;margin-top:5px}.nxNotifDot{width:8px;height:8px;border-radius:50%;background:var(--nxA,#35e8ff);margin-top:7px}.nxNotifEmpty{text-align:center;padding:28px 12px;color:#8995ba}
+html[data-nx-theme="light"] .nxNotifBellV141{background:#fff;color:#18233d;border-color:#d5e0ef}html[data-nx-theme="light"] #nxNotifBadgeV141{border-color:#f8fbff}html[data-nx-theme="light"] .nxNotifItem{background:#fff;border-color:#d6e0ee}html[data-nx-theme="light"] .nxNotifText,html[data-nx-theme="light"] .nxNotifTime{color:#687793}
 </style>
 <link rel="manifest" href="/Nexo/manifest.webmanifest">
 <meta name="theme-color" content="#080d22">
@@ -160,12 +153,12 @@ html[data-nx-theme="light"] .nxNotifText,html[data-nx-theme="light"] .nxNotifTim
 <div class="splash" id="splash"><div class="brand"><div class="mark"><span>N</span></div><div class="letters"><i>N</i><i>E</i><i>X</i><i>O</i></div><div class="tag">TUDO COMEÇA COM UMA CONEXÃO.</div></div></div>
 
 <div class="authscreen" id="authscreen"><div class="authbox"><div class="authlogo"><div class="mark"><span>N</span></div><h1>NEXO</h1><p>TUDO COMEÇA COM UMA CONEXÃO.</p></div><div class="authTabs"><button id="loginTab" class="active" onclick="authTab('login')">Entrar</button><button id="registerTab" onclick="authTab('register')">Criar conta</button></div><div class="authForm on" id="loginForm"><input class="field" id="loginUser" placeholder="@usuário" autocomplete="username"><input class="field" id="loginPass" type="password" placeholder="Senha" autocomplete="current-password"><label class="remember"><input type="checkbox" id="rememberMe" checked> Manter minha conta conectada</label><div class="authError" id="loginError"></div><button class="action" style="width:100%" onclick="loginLocal()">Entrar no NEXO</button><div class="authHint">Protótipo local: sua conta existe somente neste navegador.</div></div><div class="authForm" id="registerForm"><input class="field" id="regName" placeholder="Seu nome"><input class="field" id="regUser" placeholder="@usuário"><input class="field" id="regPass" type="password" placeholder="Senha (mínimo 4 caracteres)"><input class="field" id="regPass2" type="password" placeholder="Confirmar senha"><div class="authError" id="regError"></div><button class="action" style="width:100%" onclick="registerLocal()">Criar minha conta</button><div class="authHint">Nesta fase usamos LocalStorage. No Supabase, a autenticação será substituída por contas reais e seguras.</div></div></div></div>
-<div class="toast" id="toast"></div><div class="touchflash" id="touchflash" onclick="this.classList.remove('on')"><div class="touchbell">🔔<b>NEXO TOQUE</b><small id="touchText">Uma conexão está chamando você</small></div></div><header><div class="logo"><b>NEXO</b></div><div class="nxHeaderActions"><button class="nxNotifBell" id="nxNotifBell" onclick="nxOpenNotifications()" aria-label="Notificações">🔔<span id="nxNotifBadge"></span></button><div class="avatar">R</div></div></header>
+<div class="toast" id="toast"></div><div class="touchflash" id="touchflash" onclick="this.classList.remove('on')"><div class="touchbell">🔔<b>NEXO TOQUE</b><small id="touchText">Uma conexão está chamando você</small></div></div><header><div class="logo"><b>NEXO</b></div><div class="nxHeaderActions"><button type="button" class="nxNotifBellV141" id="nxNotifBellV141" aria-label="Abrir notificações">🔔<span id="nxNotifBadgeV141"></span></button><div class="avatar">R</div></div></header>
 <main class="content"><section class="page on" id="conversas"><input class="search" id="search" placeholder="Pesquisar conexões..."><div class="stories" id="stories"></div><div class="section"><h2>Conversas</h2><span class="muted">Recentes</span></div><button id="nxArchivedEntry" class="secondary" onclick="nxOpenArchived()" style="display:none;width:100%;margin:0 0 10px;text-align:left">📥 Arquivadas <span id="nxArchivedCount"></span></button><div id="chatlist"></div></section>
 <section class="page" id="pessoas"><div class="section"><h2>Pessoas</h2><span class="muted">Suas conexões</span></div><div class="card"><h3>Descobrir pessoas</h3><p class="muted">No futuro: QR NEXO, nome de usuário e contatos.</p><button class="action" onclick="toast('QR NEXO será liberado na próxima etapa')">Abrir meu QR</button></div><div id="people"></div><button class="fab" onclick="openModal('contactModal')">＋</button></section>
 <section class="page" id="salas"><div class="section"><h2>Salas</h2><span class="muted">Espaços compartilhados</span></div><div id="rooms"></div><button class="action" onclick="openModal('roomModal')">+ Criar sala</button></section>
 <section class="page" id="momentos"><div class="section"><h2>✨ NEXO Momentos</h2><span class="muted">Interaja, não só veja</span></div><div class="card"><b>Compartilhe um momento</b><p class="muted">Publique algo e escolha uma ação para suas conexões.</p><button class="action" onclick="openMomentComposer()">＋ Criar Momento</button></div><div id="momentsList"></div></section>
-<section class="page" id="perfil"><div class="profileHero"><div class="bigavatar" id="profileAvatar">R</div><h2 id="profileName">Rodrigo</h2><div class="muted"><span id="profileUser">@rodrigo</span> • <span id="profileStatus">Disponível 🟢</span></div><br><button class="action" onclick="openModal('profileModal')">Editar perfil</button></div><div class="card"><div class="setting"><div><b>🔔 NEXO Toque</b><div class="tiny">Chamadas rápidas entre conexões</div></div><span class="statuspill">ATIVO</span></div><div class="setting"><div><b>⭐ Mensagens favoritas</b><div class="tiny" id="favCount">0 salvas</div></div><button class="secondary" onclick="showFavorites()">Ver</button></div><div class="setting"><div><b>💾 Backup local</b><div class="tiny">Exportar seus testes em JSON</div></div><button class="secondary" onclick="exportBackup()">Exportar</button></div><div class="setting"><div><b>☀️🌙 Aparência</b><div class="tiny">Claro, escuro ou seguir o sistema</div></div><button class="secondary" onclick="nxOpenAppearance()">Alterar</button></div><div class="setting"><div><b>🎨 Temas NEXO</b><div class="tiny">Escolha a personalidade visual do aplicativo</div></div><button class="secondary" onclick="nxOpenThemes()">Escolher</button></div><div class="setting"><div><b>↺ Restaurar demonstração</b><div class="tiny">Apaga alterações deste navegador</div></div><button class="danger" onclick="resetDemo()">Restaurar</button></div></div><div class="card"><h3>Conta local</h3><div class="sessionCard"><b id="sessionName">Usuário</b><span class="tiny" id="sessionUser">@usuario</span></div><button class="danger logoutBtn" onclick="logoutLocal()">Sair da conta</button></div><div class="card"><h3>Sobre</h3><p class="muted"><button class="secondary nxHelpTutorial" onclick="nxStartOnboarding(true)">🎓 Conheça o NEXO</button>NEXO v1.4 • Tudo começa com uma conexão.</p></div></section></main>
+<section class="page" id="perfil"><div class="profileHero"><div class="bigavatar" id="profileAvatar">R</div><h2 id="profileName">Rodrigo</h2><div class="muted"><span id="profileUser">@rodrigo</span> • <span id="profileStatus">Disponível 🟢</span></div><br><button class="action" onclick="openModal('profileModal')">Editar perfil</button></div><div class="card"><div class="setting"><div><b>🔔 NEXO Toque</b><div class="tiny">Chamadas rápidas entre conexões</div></div><span class="statuspill">ATIVO</span></div><div class="setting"><div><b>⭐ Mensagens favoritas</b><div class="tiny" id="favCount">0 salvas</div></div><button class="secondary" onclick="showFavorites()">Ver</button></div><div class="setting"><div><b>💾 Backup local</b><div class="tiny">Exportar seus testes em JSON</div></div><button class="secondary" onclick="exportBackup()">Exportar</button></div><div class="setting"><div><b>☀️🌙 Aparência</b><div class="tiny">Claro, escuro ou seguir o sistema</div></div><button class="secondary" onclick="nxOpenAppearance()">Alterar</button></div><div class="setting"><div><b>🎨 Temas NEXO</b><div class="tiny">Escolha a personalidade visual do aplicativo</div></div><button class="secondary" onclick="nxOpenThemes()">Escolher</button></div><div class="setting"><div><b>↺ Restaurar demonstração</b><div class="tiny">Apaga alterações deste navegador</div></div><button class="danger" onclick="resetDemo()">Restaurar</button></div></div><div class="card"><h3>Conta local</h3><div class="sessionCard"><b id="sessionName">Usuário</b><span class="tiny" id="sessionUser">@usuario</span></div><button class="danger logoutBtn" onclick="logoutLocal()">Sair da conta</button></div><div class="card"><h3>Sobre</h3><p class="muted"><button class="secondary nxHelpTutorial" onclick="nxStartOnboarding(true)">🎓 Conheça o NEXO</button>NEXO v1.4.1 • Tudo começa com uma conexão.</p></div></section></main>
 <nav class="nav"><button class="active" data-page="conversas"><span>💬</span>Conversas</button><button data-page="pessoas"><span>👥</span>Pessoas</button><button class="plus" id="globalPlus">+</button><button data-page="momentos"><span>✨</span>Momentos</button><button data-page="salas"><span>◫</span>Salas</button><button data-page="perfil"><span>◉</span>Perfil</button></nav></div>
 <div class="chatpage" id="chatpage"><div class="chathead"><button class="back" id="back">‹</button><div class="avatar" id="chatAvatar">A</div><div><b id="chatName">Ana</b><div class="online">● online agora</div></div><button class="round" style="margin-left:auto" onclick="toggleChatSearch()">⌕</button><button class="round" onclick="nxOpenChatInfo()">ⓘ</button><button class="round" onclick="nexoTouchV3()">🔔</button></div><div class="chatSearch" id="chatSearch"><input id="chatSearchInput" placeholder="Buscar nesta conversa..." oninput="searchInChat(this.value)"></div><div class="pinned" id="pinned"></div><div class="nxSelectBar" id="nxSelectBar"><button onclick="nxCancelSelection()">✕</button><b id="nxSelectCount">0 selecionadas</b><button onclick="nxForwardSelection()">↗</button><button onclick="nxDeleteSelection()">🗑</button></div><div class="msgs" id="msgs"></div><div class="typing" id="typing">● digitando...</div><div class="replybar" id="replybar"></div><div class="nxRecBar" id="nxRecBar"><span class="nxRecDot"></span><span class="nxRecTime" id="nxRecTime">00:00</span><span class="nxRecState" id="nxRecState">Gravando áudio…</span><button id="nxPauseBtn" onclick="nxPauseRecording()">⏸</button><button onclick="nxCancelRecording()">✕</button><button onclick="nxFinishRecording()">➤</button></div><div class="composer"><button class="round" id="chatPlus">＋</button><input id="mediaInput" type="file" accept="image/*" hidden><button class="round" onclick="document.getElementById('mediaInput').click()">📷</button><input id="message" placeholder="Mensagem..."><button class="round" id="micBtn" onclick="toggleRecording()">🎙</button><button class="round send" id="send">➤</button></div></div>
 <div class="sheet" id="sheet"><div class="panel"><div class="handle"></div><div class="section"><h2>NEXO+</h2><span class="muted">Faça mais na conversa</span></div><div class="grid"><div class="tool"><button onclick="nexoTouch()">🔔</button>Toque</div><div class="tool"><button onclick="createTool('task')">✅</button>Tarefa</div><div class="tool"><button onclick="createTool('poll')">📊</button>Enquete</div><div class="tool"><button onclick="createTool('event')">📅</button>Evento</div><div class="tool"><button onclick="createTool('split')">💰</button>Dividir</div><div class="tool"><button onclick="createTool('location')">📍</button>Local</div><div class="tool"><button onclick="createTool('schedule')">⏳</button>Agendar</div><div class="tool"><button onclick="nxOpenGames()">🎮</button>Jogos</div></div></div></div>
@@ -913,103 +906,33 @@ setTimeout(()=>nxWaitHomeForTip(),300);
  window.nxOpenThemes=()=>{ui();openModal('nxThemesModal')};
  apply();
 })();
-</script>
-<div class="modal" id="nxNotificationsModal"><div class="dialog">
-  <div class="row" style="justify-content:space-between;align-items:center">
-    <div><h2 style="margin-bottom:3px">🔔 Notificações</h2><div class="tiny">Tudo que pede sua atenção no NEXO</div></div>
-    <button class="secondary" onclick="closeModalOnly('nxNotificationsModal')">✕</button>
-  </div>
-  <div class="nxNotifToolbar">
-    <span class="tiny" id="nxNotifSummary">Nenhuma nova</span>
-    <button class="secondary" onclick="nxMarkAllNotificationsRead()">✓ Marcar todas como lidas</button>
-  </div>
-  <div class="nxNotifList" id="nxNotifList"></div>
-</div></div>
-<script>
-/* NEXO v1.4 — Central de Notificações (local; pronta para futura fonte Supabase/Push) */
+</script><div class="modal" id="nxNotificationsModalV141"><div class="dialog">
+<div class="row" style="justify-content:space-between;align-items:center"><div><h2 style="margin-bottom:3px">🔔 Notificações</h2><div class="tiny">Tudo que pede sua atenção no NEXO</div></div><button class="secondary" onclick="closeModalOnly('nxNotificationsModalV141')">✕</button></div>
+<div class="nxNotifToolbar"><span class="tiny" id="nxNotifSummaryV141">Nenhuma nova</span><button class="secondary" onclick="nxMarkAllNotificationsReadV141()">✓ Marcar todas como lidas</button></div>
+<div class="nxNotifList" id="nxNotifListV141"></div></div></div><script>
+/* NEXO v1.4.1 — Central de Notificações */
 (function(){
-  const TYPES={
-    message:{icon:'💬',title:'Nova mensagem'},
-    touch:{icon:'🔔',title:'NEXO Toque'},
-    reaction:{icon:'❤️',title:'Nova reação'},
-    connection:{icon:'🤝',title:'Nova conexão'},
-    moment:{icon:'✨',title:'NEXO Momentos'},
-    plus:{icon:'➕',title:'NEXO+'}
-  };
-  const user=()=>String(localStorage.getItem('nexoSessionV06')||sessionStorage.getItem('nexoSessionV06')||'local').replace(/[^a-zA-Z0-9@._-]/g,'_').slice(0,80);
-  const key=()=>`nexoNotificationsV14_${user()}`;
-  const seededKey=()=>`nexoNotificationsSeedV14_${user()}`;
-  const read=()=>{try{let a=JSON.parse(localStorage.getItem(key())||'[]');return Array.isArray(a)?a:[]}catch(e){return[]}};
-  const write=a=>{localStorage.setItem(key(),JSON.stringify(a.slice(0,80)));renderBadge()};
-  const time=()=>new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
-  const escN=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-
-  function seed(){
-    if(localStorage.getItem(seededKey()))return;
-    const a=[
-      {id:Date.now()-3000,type:'touch',text:'Ana tocou seu NEXO • 💬 Me chama',at:'agora',read:false,chatId:3},
-      {id:Date.now()-2000,type:'reaction',text:'Mariana reagiu ❤️ a uma mensagem',at:'agora',read:false,chatId:1},
-      {id:Date.now()-1000,type:'connection',text:'Você tem uma nova solicitação de conexão',at:'agora',read:true}
-    ];
-    localStorage.setItem(key(),JSON.stringify(a));
-    localStorage.setItem(seededKey(),'1');
-  }
-
-  window.nxAddNotification=function(type,text,opts={}){
-    const a=read(), meta=TYPES[type]||TYPES.message;
-    a.unshift({id:Date.now(),type,text:String(text||meta.title),at:opts.at||time(),read:false,chatId:Number.isInteger(opts.chatId)?opts.chatId:null});
-    write(a);
-  };
-
-  function renderBadge(){
-    const n=read().filter(x=>!x.read).length, b=document.getElementById('nxNotifBadge');
-    if(!b)return;
-    b.textContent=n>99?'99+':String(n);
-    b.classList.toggle('on',n>0);
-  }
-
-  function renderList(){
-    const a=read(), list=document.getElementById('nxNotifList'), sum=document.getElementById('nxNotifSummary');
-    if(!list)return;
-    const unread=a.filter(x=>!x.read).length;
-    if(sum)sum.textContent=unread?`${unread} ${unread===1?'não lida':'não lidas'}`:'Tudo em dia ✓';
-    list.innerHTML=a.length?a.map(n=>{
-      const m=TYPES[n.type]||TYPES.message;
-      return `<div class="nxNotifItem ${n.read?'':'unread'}" onclick="nxOpenNotification(${n.id})">
-        <div class="nxNotifIcon">${m.icon}</div>
-        <div class="nxNotifBody"><div class="nxNotifTitle">${escN(m.title)}</div><div class="nxNotifText">${escN(n.text)}</div><div class="nxNotifTime">${escN(n.at||'agora')}</div></div>
-        ${n.read?'':'<span class="nxNotifDot"></span>'}
-      </div>`;
-    }).join(''):'<div class="nxNotifEmpty">🔕<br><br>Nenhuma notificação por aqui.</div>';
-  }
-
-  window.nxOpenNotifications=function(){renderList();openModal('nxNotificationsModal')};
-  window.nxMarkAllNotificationsRead=function(){const a=read().map(x=>({...x,read:true}));write(a);renderList();if(typeof toast==='function')toast('✓ Notificações marcadas como lidas')};
-  window.nxOpenNotification=function(id){
-    const a=read(), n=a.find(x=>x.id===id); if(!n)return;
-    n.read=true; write(a); renderList();
-    if(Number.isInteger(n.chatId) && typeof openChat==='function' && store?.chats?.some(c=>c.id===n.chatId)){
-      closeModalOnly('nxNotificationsModal'); openChat(n.chatId);
-    }
-  };
-
-  seed(); renderBadge();
-
-  /* Local test hooks: simulate receiving a NEXO Toque and accepting a connection. */
-  if(typeof window.simulateNexoTouch==='function'){
-    const oldSim=window.simulateNexoTouch;
-    window.simulateNexoTouch=function(){
-      const c=(typeof current!=='undefined'&&store?.chats)?store.chats.find(x=>x.id===current):null;
-      nxAddNotification('touch',`${c?.name||'Uma conexão'} tocou seu NEXO`,{chatId:c?.id});
-      return oldSim.apply(this,arguments);
-    };
-  }
-  if(typeof window.nxAccept==='function'){
-    const oldAccept=window.nxAccept;
-    window.nxAccept=function(i){
-      try{const req=(typeof D!=='undefined'&&D.requests)?D.requests[i]:null;if(req)nxAddNotification('connection',`${req.name} agora é uma conexão no NEXO`)}catch(e){}
-      return oldAccept.apply(this,arguments);
-    };
-  }
+ const TYPES={message:['💬','Nova mensagem'],touch:['🔔','NEXO Toque'],reaction:['❤️','Nova reação'],connection:['🤝','Nova conexão'],moment:['✨','NEXO Momentos'],plus:['➕','NEXO+']};
+ const user=()=>String(localStorage.getItem('nexoSessionV06')||'local').replace(/[^a-zA-Z0-9@._-]/g,'_').slice(0,80);
+ const key=()=>`nexoNotificationsV141_${user()}`, seedKey=()=>`nexoNotificationsSeedV141_${user()}`;
+ const read=()=>{try{const a=JSON.parse(localStorage.getItem(key())||'[]');return Array.isArray(a)?a:[]}catch(e){return[]}};
+ const write=a=>{localStorage.setItem(key(),JSON.stringify(a.slice(0,80)));badge()};
+ const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ function seed(){if(localStorage.getItem(seedKey()))return;localStorage.setItem(key(),JSON.stringify([{id:Date.now()-2,type:'touch',text:'Ana tocou seu NEXO • 💬 Me chama',at:'agora',read:false,chatId:3},{id:Date.now()-1,type:'reaction',text:'Mariana reagiu ❤️ a uma mensagem',at:'agora',read:false,chatId:1}]));localStorage.setItem(seedKey(),'1')}
+ function badge(){const b=document.getElementById('nxNotifBadgeV141');if(!b)return;const n=read().filter(x=>!x.read).length;b.textContent=n>99?'99+':n;b.classList.toggle('on',n>0)}
+ function list(){const a=read(),el=document.getElementById('nxNotifListV141'),sm=document.getElementById('nxNotifSummaryV141');if(!el)return;const n=a.filter(x=>!x.read).length;if(sm)sm.textContent=n?`${n} ${n===1?'não lida':'não lidas'}`:'Tudo em dia ✓';el.innerHTML=a.length?a.map(x=>{const m=TYPES[x.type]||TYPES.message;return `<div class="nxNotifItem ${x.read?'':'unread'}" onclick="nxOpenNotificationV141(${x.id})"><div class="nxNotifIcon">${m[0]}</div><div class="nxNotifBody"><div class="nxNotifTitle">${m[1]}</div><div class="nxNotifText">${esc(x.text)}</div><div class="nxNotifTime">${esc(x.at||'agora')}</div></div>${x.read?'':'<span class="nxNotifDot"></span>'}</div>`}).join(''):'<div class="nxNotifEmpty">🔕<br><br>Nenhuma notificação por aqui.</div>'}
+ window.nxOpenNotificationsV141=()=>{list();openModal('nxNotificationsModalV141')};
+ window.nxMarkAllNotificationsReadV141=()=>{write(read().map(x=>({...x,read:true})));list();if(typeof toast==='function')toast('✓ Notificações marcadas como lidas')};
+ window.nxOpenNotificationV141=id=>{const a=read(),n=a.find(x=>x.id===id);if(!n)return;n.read=true;write(a);list();if(Number.isInteger(n.chatId)&&typeof openChat==='function'&&typeof store!=='undefined'&&store.chats&&store.chats.some(c=>c.id===n.chatId)){closeModalOnly('nxNotificationsModalV141');openChat(n.chatId)}};
+ window.nxAddNotificationV141=(type,text,opts={})=>{const a=read();a.unshift({id:Date.now(),type,text,at:opts.at||new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'}),read:false,chatId:Number.isInteger(opts.chatId)?opts.chatId:null});write(a)};
+ seed();badge();
+ /* Critical fix: bind directly and stop propagation so generic header/touch handlers cannot steal the bell tap. */
+ const bell=document.getElementById('nxNotifBellV141');
+ if(bell){
+   const open=e=>{e.preventDefault();e.stopPropagation();if(e.stopImmediatePropagation)e.stopImmediatePropagation();nxOpenNotificationsV141()};
+   bell.addEventListener('click',open,true);
+   bell.addEventListener('pointerup',e=>{e.stopPropagation()},true);
+   bell.addEventListener('touchend',e=>{e.stopPropagation()},true);
+ }
 })();
 </script></body></html>
