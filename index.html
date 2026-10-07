@@ -977,7 +977,7 @@ setTimeout(()=>nxWaitHomeForTip(),300);
    const {data,error}=await req;if(error)throw error;if(seq!==nxRealGlobalSeq)return;
    nxRealGlobalPeople=(data||[]).map(x=>({type:'people',icon:'👤',title:x.full_name||'Usuário NEXO',text:(x.username||'')+(x.bio?' • '+x.bio:''),realProfile:true,profileId:x.id,username:x.username,self:x.id===session.user.id}));
    results=collect(q);renderG();
-  }catch(e){console.error('[NEXO v1.9.1 Busca Global]',e);if(seq===nxRealGlobalSeq){nxRealGlobalPeople=[];results=collect(q);renderG()}}
+  }catch(e){console.error('[NEXO v1.9.2 Busca Global]',e);if(seq===nxRealGlobalSeq){nxRealGlobalPeople=[];results=collect(q);renderG()}}
  }
  function collect(q){
    const nq=norm(q),a=[]; if(!nq)return a;
@@ -1455,7 +1455,7 @@ setTimeout(()=>nxWaitHomeForTip(),300);
      status.textContent='🤝 Solicitação enviada para '+foundPerson.username+'!';
      await searchRealPerson();
    }catch(err){
-     console.error('[NEXO v1.9.1 Conectar]',err);
+     console.error('[NEXO v1.9.2 Conectar]',err);
      status.textContent='⚠️ Não foi possível enviar a solicitação: '+(err?.message||'erro desconhecido');
      if(btn){btn.disabled=false;btn.textContent='🤝 Conectar'}
    }
@@ -1489,7 +1489,7 @@ setTimeout(()=>nxWaitHomeForTip(),300);
      const connect=document.getElementById('nxConnectRealBtn');
      if(connect)connect.addEventListener('click',sendConnectionRequest);
    }catch(err){
-     console.error('[NEXO v1.9.1 Pessoas]',err);
+     console.error('[NEXO v1.9.2 Pessoas]',err);
      status.textContent='⚠️ A consulta ao Supabase falhou: '+(err?.message||'erro desconhecido');
    }
  }
@@ -1527,7 +1527,7 @@ setTimeout(()=>nxWaitHomeForTip(),300);
    }).join('');card.style.display='block';
    list.querySelectorAll('[data-nx-accept]').forEach(b=>b.addEventListener('click',()=>answer(b.dataset.nxAccept,'accepted',b)));
    list.querySelectorAll('[data-nx-reject]').forEach(b=>b.addEventListener('click',()=>answer(b.dataset.nxReject,'rejected',b)));
-  }catch(err){console.error('[NEXO v1.9.1 Solicitações]',err);card.style.display='block';list.innerHTML='<div class="muted">⚠️ Não foi possível carregar as solicitações.</div>'}
+  }catch(err){console.error('[NEXO v1.9.2 Solicitações]',err);card.style.display='block';list.innerHTML='<div class="muted">⚠️ Não foi possível carregar as solicitações.</div>'}
   finally{busy=false}
  }
  async function answer(id,status,button){
@@ -1540,7 +1540,7 @@ setTimeout(()=>nxWaitHomeForTip(),300);
    await loadIncoming();
    if(typeof window.nxLoadRealConnections==='function')await window.nxLoadRealConnections();
    if(typeof window.nxSearchRealPerson==='function'){const inp=document.getElementById('nxRealPeopleInput');if(inp?.value.trim())window.nxSearchRealPerson()}
-  }catch(err){console.error('[NEXO v1.9.1 Responder]',err);if(row)row.querySelectorAll('button').forEach(b=>b.disabled=false);if(button)button.textContent=status==='accepted'?'✅ Aceitar':'❌ Recusar';if(typeof toast==='function')toast('⚠️ Não foi possível responder à solicitação.')}
+  }catch(err){console.error('[NEXO v1.9.2 Responder]',err);if(row)row.querySelectorAll('button').forEach(b=>b.disabled=false);if(button)button.textContent=status==='accepted'?'✅ Aceitar':'❌ Recusar';if(typeof toast==='function')toast('⚠️ Não foi possível responder à solicitação.')}
  }
  function refreshIfPeople(){if(document.getElementById('pessoas')?.classList.contains('on'))loadIncoming()}
  document.addEventListener('click',e=>{if(e.target.closest?.('.nav button[data-page="pessoas"]'))setTimeout(loadIncoming,80)},true);
@@ -1580,7 +1580,7 @@ setTimeout(()=>nxWaitHomeForTip(),300);
    }).join('');
    wrap.style.display='block';
   }catch(err){
-   console.error('[NEXO v1.9.1 Conexões reais]',err);
+   console.error('[NEXO v1.9.2 Conexões reais]',err);
    wrap.style.display='block';list.innerHTML='<div class="muted">⚠️ Não foi possível carregar suas conexões reais.</div>';count.textContent='';
   }finally{busy=false}
  }
@@ -1624,7 +1624,7 @@ setTimeout(()=>nxWaitHomeForTip(),300);
      await loadRealConversations();
      document.querySelector('.nav button[data-page="conversas"]')?.click();
    }catch(err){
-     console.error('[NEXO v1.9.1 Criar conversa]',err);
+     console.error('[NEXO v1.9.2 Criar conversa]',err);
      if(typeof toast==='function')toast('⚠️ Não foi possível iniciar a conversa.');
    }finally{createBusy=false}
  }
@@ -1664,6 +1664,27 @@ setTimeout(()=>nxWaitHomeForTip(),300);
        if(m)latest.set(c.id,m);
      }));
 
+     // v1.9.2: estado de leitura do próprio usuário + contagem de mensagens recebidas após a última leitura.
+     const readMap=new Map(), unreadMap=new Map();
+     const convIds=convs.map(c=>c.id);
+     const {data:reads,error:re}=await sb.from('conversation_reads')
+       .select('conversation_id,last_read_at')
+       .eq('user_id',user.id)
+       .in('conversation_id',convIds);
+     if(re)throw re;
+     (reads||[]).forEach(r=>readMap.set(r.conversation_id,r.last_read_at));
+     await Promise.all(convs.map(async c=>{
+       let q=sb.from('messages')
+         .select('id',{count:'exact',head:true})
+         .eq('conversation_id',c.id)
+         .neq('sender_id',user.id);
+       const lastRead=readMap.get(c.id);
+       if(lastRead)q=q.gt('created_at',lastRead);
+       const {count,error:ue}=await q;
+       if(ue)throw ue;
+       unreadMap.set(c.id,count||0);
+     }));
+
      function when(iso){
        if(!iso)return 'NEXO';
        const d=new Date(iso);if(Number.isNaN(d.getTime()))return 'NEXO';
@@ -1675,10 +1696,12 @@ setTimeout(()=>nxWaitHomeForTip(),300);
      list.innerHTML=convs.map(c=>{
        const oid=c.user1_id===user.id?c.user2_id:c.user1_id,x=map.get(oid)||{},name=x.full_name||'Usuário NEXO',m=latest.get(c.id);
        const preview=m?(m.sender_id===user.id?'Você: ':'')+m.content:(x.username||'')+' • Conversa real';
-       return '<div class="chatrow" data-nx-conversation="'+esc(c.id)+'" data-nx-other="'+esc(oid)+'"><div class="pic">'+esc(name[0]||'N')+'</div><div class="main"><div class="topline"><span class="name">'+esc(name)+'</span><span class="time">'+esc(when(m?.created_at||c.updated_at))+'</span></div><div class="preview">'+esc(preview)+'</div></div></div>';
+       const unread=unreadMap.get(c.id)||0;
+       const badge=unread?'<span aria-label="'+esc(unread)+' mensagens não lidas" style="display:inline-flex;min-width:20px;height:20px;padding:0 6px;align-items:center;justify-content:center;border-radius:999px;background:linear-gradient(135deg,#22d3ee,#a855f7);color:#071020;font-size:11px;font-weight:900;margin-left:8px">'+esc(unread>99?'99+':unread)+'</span>':'';
+       return '<div class="chatrow" data-nx-conversation="'+esc(c.id)+'" data-nx-other="'+esc(oid)+'"><div class="pic">'+esc(name[0]||'N')+'</div><div class="main"><div class="topline"><span class="name">'+esc(name)+badge+'</span><span class="time">'+esc(when(m?.created_at||c.updated_at))+'</span></div><div class="preview"'+(unread?' style="font-weight:800;color:#e9f8ff"':'')+'>'+esc(preview)+'</div></div></div>';
      }).join('');
    }catch(err){
-     console.error('[NEXO v1.9.1 Listar conversas]',err);
+     console.error('[NEXO v1.9.2 Listar conversas]',err);
      list.innerHTML='<div class="card"><b>⚠️ Não foi possível carregar suas conversas.</b></div>';
    }finally{listBusy=false}
  }
@@ -1695,7 +1718,7 @@ setTimeout(()=>nxWaitHomeForTip(),300);
 })();
 </script>
 <script>
-/* NEXO v1.9.1 — chat de texto real via Supabase */
+/* NEXO v1.9.2 — mensagens não lidas via conversation_reads */
 (function(){
  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  let realChat=null, sending=false, loading=false;
@@ -1719,7 +1742,20 @@ setTimeout(()=>nxWaitHomeForTip(),300);
    document.getElementById('chatSearch').classList.remove('on');
    document.getElementById('chatpage').classList.add('on');
    await loadRealMessages();
-  }catch(err){console.error('[NEXO v1.9.1 Abrir chat]',err);if(typeof toast==='function')toast('⚠️ Não foi possível abrir a conversa.')}
+  }catch(err){console.error('[NEXO v1.9.2 Abrir chat]',err);if(typeof toast==='function')toast('⚠️ Não foi possível abrir a conversa.')}
+ }
+ async function markRealConversationRead(){
+  if(!realChat)return;
+  try{
+   const {sb,user}=await getSession();
+   const {error}=await sb.from('conversation_reads').upsert({
+    conversation_id:realChat.conversationId,
+    user_id:user.id,
+    last_read_at:new Date().toISOString()
+   },{onConflict:'conversation_id,user_id'});
+   if(error)throw error;
+   if(typeof window.nxLoadRealConversations==='function')window.nxLoadRealConversations();
+  }catch(err){console.error('[NEXO v1.9.2 Marcar como lida]',err)}
  }
  async function loadRealMessages(){
   if(!realChat||loading)return;loading=true;
@@ -1735,7 +1771,8 @@ setTimeout(()=>nxWaitHomeForTip(),300);
     return '<div class="msgwrap"><div class="bubble '+side+'">'+esc(m.content)+'<div class="meta">'+esc(at)+'</div></div></div>';
    }).join(''):'<div class="muted" style="text-align:center;padding:24px 10px">💬 Comece a conversa.</div>';
    box.scrollTop=box.scrollHeight;
-  }catch(err){console.error('[NEXO v1.9.1 Mensagens]',err);box.innerHTML='<div class="muted" style="text-align:center;padding:24px">⚠️ Não foi possível carregar as mensagens.</div>'}
+   await markRealConversationRead();
+  }catch(err){console.error('[NEXO v1.9.2 Mensagens]',err);box.innerHTML='<div class="muted" style="text-align:center;padding:24px">⚠️ Não foi possível carregar as mensagens.</div>'}
   finally{loading=false}
  }
  async function sendRealMessage(){
@@ -1749,7 +1786,7 @@ setTimeout(()=>nxWaitHomeForTip(),300);
    input.value='';await loadRealMessages();
    await sb.from('conversations').update({updated_at:new Date().toISOString()}).eq('id',realChat.conversationId);
    if(typeof window.nxLoadRealConversations==='function')window.nxLoadRealConversations();
-  }catch(err){console.error('[NEXO v1.9.1 Enviar]',err);if(typeof toast==='function')toast('⚠️ Não foi possível enviar a mensagem.')}
+  }catch(err){console.error('[NEXO v1.9.2 Enviar]',err);if(typeof toast==='function')toast('⚠️ Não foi possível enviar a mensagem.')}
   finally{sending=false;btn.disabled=false;input.focus()}
  }
 
