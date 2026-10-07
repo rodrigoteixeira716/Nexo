@@ -1,4 +1,4 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#070b20"><title>NEXO v1.8.8</title><style>
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#070b20"><title>NEXO v1.8.8.1</title><style>
 *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:#050817;color:#f7f8ff}button,input{font:inherit}.app{max-width:520px;margin:auto;min-height:100vh;background:radial-gradient(circle at 70% 0,#23125b55,transparent 35%),#080c20}.splash{position:fixed;inset:0;z-index:99;background:radial-gradient(circle at center,#1b1554,#050817 65%);display:grid;place-items:center;transition:.7s}.splash.hide{opacity:0;visibility:hidden}.brand{text-align:center}.mark{width:116px;height:116px;margin:auto;border:2px solid #36eaff;border-radius:28px;box-shadow:0 0 30px #4a40ff88,inset 0 0 24px #e62dff33;display:grid;place-items:center;animation:pop .8s ease}.mark span{font-size:64px;font-weight:900;background:linear-gradient(135deg,#41efff,#5870ff,#ff42df);-webkit-background-clip:text;color:transparent}.letters{font-size:43px;font-weight:900;letter-spacing:10px;margin:22px 0 7px}.letters i{font-style:normal;opacity:0;animation:letter .4s forwards}.letters i:nth-child(2){animation-delay:.15s}.letters i:nth-child(3){animation-delay:.3s}.letters i:nth-child(4){animation-delay:.45s}.tag{font-size:11px;letter-spacing:3px;color:#ccd4ff;opacity:0;animation:fade .7s .8s forwards}@keyframes pop{from{transform:scale(.3) rotate(-12deg);opacity:0}}@keyframes letter{to{opacity:1}}@keyframes fade{to{opacity:1}}
 header{position:sticky;top:0;z-index:5;padding:20px 18px 12px;background:#080c20dd;backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:space-between}.logo{font-size:24px;font-weight:900;letter-spacing:4px}.logo b{background:linear-gradient(90deg,#35e8ff,#ff4cdd);-webkit-background-clip:text;color:transparent}.avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#34e8ff,#7d42ff);display:grid;place-items:center;font-weight:800}.content{padding:8px 16px 92px}.search{background:#11172f;border:1px solid #242c50;border-radius:16px;padding:13px 15px;color:white;width:100%;outline:none}.stories{display:flex;gap:14px;overflow:auto;padding:18px 0}.story{text-align:center;font-size:11px;min-width:62px}.story .ring{width:58px;height:58px;border-radius:50%;padding:2px;background:linear-gradient(135deg,#31eaff,#fd3fdb);margin:auto auto 6px}.story .ring div{height:100%;border-radius:50%;background:#17203f;display:grid;place-items:center;font-weight:800}.section{display:flex;justify-content:space-between;align-items:center;margin:5px 0 10px}.section h2{font-size:17px;margin:0}.muted{color:#8e99bd}.chatrow{display:flex;gap:12px;padding:13px 2px;border-bottom:1px solid #171d36;cursor:pointer}.chatrow .pic{width:50px;height:50px;flex:0 0 50px;border-radius:17px;background:linear-gradient(135deg,#29365f,#703dc1);display:grid;place-items:center;font-weight:800}.chatrow .main{min-width:0;flex:1}.topline{display:flex;justify-content:space-between}.name{font-weight:750}.time{font-size:11px;color:#7883a6}.preview{font-size:13px;color:#929cbb;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:5px}.badge{background:#5a4cff;border-radius:20px;padding:2px 7px;font-size:10px}.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);height:76px;background:#0d1229ee;backdrop-filter:blur(20px);border-top:1px solid #222b4b;display:flex;justify-content:space-around;align-items:center;z-index:8}.nav button{background:none;border:0;color:#7f89aa;font-size:11px}.nav button span{display:block;font-size:21px;margin-bottom:3px}.nav .active{color:#5beaff}.plus{width:54px!important;height:54px;border-radius:18px!important;background:linear-gradient(135deg,#24dfff,#7549ff,#ff3bd7)!important;color:white!important;font-size:27px!important;box-shadow:0 7px 25px #7048ff55}
 .page{display:none}.page.on{display:block}.chatpage{position:fixed;inset:0;z-index:20;background:#070b1c;max-width:520px;margin:auto;display:none;flex-direction:column}.chatpage.on{display:flex}.chathead{display:flex;gap:10px;align-items:center;padding:14px;border-bottom:1px solid #202744}.back{border:0;background:none;color:white;font-size:25px}.online{font-size:11px;color:#52e3bb}.msgs{flex:1;overflow:auto;padding:18px;background:radial-gradient(circle at 20% 20%,#18204b55,transparent 28%)}.bubble{max-width:80%;padding:11px 13px;border-radius:18px;margin:8px 0;font-size:14px;line-height:1.35}.them{background:#151c36;border-bottom-left-radius:5px}.me{background:linear-gradient(135deg,#2c56c7,#743bd0);margin-left:auto;border-bottom-right-radius:5px}.special{border:1px solid #4e5c91;background:#111831}.special strong{display:block;color:#61e7ff;margin-bottom:5px}.composer{padding:10px 12px 14px;display:flex;gap:8px;background:#0b1026}.composer input{flex:1;border:1px solid #273053;background:#141b35;color:white;padding:12px 14px;border-radius:18px;outline:none}.round{border:0;background:#222b50;color:white;border-radius:16px;width:46px}.send{background:linear-gradient(135deg,#29dff2,#7046ed)}.sheet{position:fixed;inset:0;z-index:50;background:#0009;display:none;align-items:end;justify-content:center}.sheet.on{display:flex}.panel{width:min(520px,100%);background:#11172e;border-radius:28px 28px 0 0;padding:20px 18px 30px}.handle{width:45px;height:4px;background:#475170;border-radius:9px;margin:0 auto 18px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.tool{text-align:center;font-size:11px;color:#c3c9df}.tool button{width:56px;height:56px;border:0;border-radius:18px;background:#20294c;color:white;font-size:24px;margin-bottom:6px}.card{padding:16px;border:1px solid #252e50;border-radius:20px;background:#10162d;margin:12px 0}.card h3{margin:0 0 5px}.action{border:0;border-radius:14px;background:linear-gradient(135deg,#2bdcec,#6c4bf3);color:white;padding:11px 14px;font-weight:700}.profileHero{text-align:center;padding:25px}.bigavatar{width:90px;height:90px;border-radius:30px;margin:auto;background:linear-gradient(135deg,#36e9ff,#7b45ff,#fa3bd9);display:grid;place-items:center;font-size:32px;font-weight:900}.toast{position:fixed;top:85px;left:50%;transform:translateX(-50%) translateY(-20px);z-index:80;background:#171e3c;border:1px solid #4c5a91;border-radius:16px;padding:12px 16px;opacity:0;transition:.3s;pointer-events:none;white-space:nowrap}.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -141,7 +141,7 @@ html[data-nx-theme="light"] .nxThemeCard{background:#fff;color:#18233d;border-co
 .nxNotifBody{flex:1;min-width:0}.nxNotifTitle{font-weight:800;font-size:13px}.nxNotifText{font-size:12px;color:#9aa8cf;margin-top:3px;line-height:1.35}.nxNotifTime{font-size:10px;color:#7f8caf;margin-top:5px}.nxNotifDot{width:8px;height:8px;border-radius:50%;background:var(--nxA,#35e8ff);margin-top:7px}.nxNotifEmpty{text-align:center;padding:28px 12px;color:#8995ba}
 html[data-nx-theme="light"] .nxNotifBellV141{background:#fff;color:#18233d;border-color:#d5e0ef}html[data-nx-theme="light"] #nxNotifBadgeV141{border-color:#f8fbff}html[data-nx-theme="light"] .nxNotifItem{background:#fff;border-color:#d6e0ee}html[data-nx-theme="light"] .nxNotifText,html[data-nx-theme="light"] .nxNotifTime{color:#687793}
 
-/* NEXO v1.8.8 — Busca Global */
+/* NEXO v1.8.8.1 — Busca Global */
 .nxGlobalTabs{display:flex;gap:6px;overflow-x:auto;padding:10px 0 9px}
 .nxGlobalTab{white-space:nowrap;border:1px solid #2b3862;background:#111936;color:#aab7da;border-radius:999px;padding:7px 10px;font-size:11px}
 .nxGlobalTab.on{color:#fff;border-color:var(--nxA);box-shadow:0 0 0 1px var(--nxA) inset}
@@ -170,7 +170,7 @@ html[data-nx-theme="light"] .nxSearchText{color:#687793}
 <section class="page" id="pessoas"><div class="section"><h2>Pessoas</h2><span class="muted">Suas conexões</span></div><div class="card" id="nxRealPeopleCard"><h3>🔎 Encontrar pessoa</h3><p class="muted">Busque uma conta NEXO real pelo @usuário.</p><div class="row"><input class="field" id="nxRealPeopleInput" placeholder="@usuario" autocomplete="off"><button class="action" id="nxRealPeopleButton" type="button">Buscar</button></div><div id="nxRealPeopleStatus" class="muted" style="margin-top:10px">Busca conectada ao Supabase.</div><div id="nxRealPeopleResult" style="margin-top:10px"></div></div><div class="card" id="nxIncomingRequestsCard" style="display:none"><h3>🤝 Solicitações de conexão <span class="badge" id="nxIncomingRequestsCount">0</span></h3><div id="nxIncomingRequestsList"></div></div><div id="nxRealConnectionsWrap" style="display:none"><div class="section" style="margin-top:14px"><h3>🔗 Suas conexões reais</h3><span class="muted" id="nxRealConnectionsCount"></span></div><div id="nxRealConnections"></div></div><div id="people"></div><button class="fab" onclick="openModal('contactModal')">＋</button></section>
 <section class="page" id="salas"><div class="section"><h2>Salas</h2><span class="muted">Espaços compartilhados</span></div><div id="rooms"></div><button class="action" onclick="openModal('roomModal')">+ Criar sala</button></section>
 <section class="page" id="momentos"><div class="section"><h2>✨ NEXO Momentos</h2><span class="muted">Interaja, não só veja</span></div><div class="card"><b>Compartilhe um momento</b><p class="muted">Publique algo e escolha uma ação para suas conexões.</p><button class="action" onclick="openMomentComposer()">＋ Criar Momento</button></div><div id="momentsList"></div></section>
-<section class="page" id="perfil"><div class="profileHero"><div class="bigavatar" id="profileAvatar">R</div><h2 id="profileName">Rodrigo</h2><div class="muted"><span id="profileUser">@rodrigo</span> • <span id="profileStatus">Disponível 🟢</span></div><br><button class="action" onclick="openModal('profileModal')">Editar perfil</button></div><div class="card"><div class="setting"><div><b>🔔 NEXO Toque</b><div class="tiny">Chamadas rápidas entre conexões</div></div><span class="statuspill">ATIVO</span></div><div class="setting"><div><b>⭐ Mensagens favoritas</b><div class="tiny" id="favCount">0 salvas</div></div><button class="secondary" onclick="showFavorites()">Ver</button></div><div class="setting"><div><b>💾 Backup local</b><div class="tiny">Exportar seus testes em JSON</div></div><button class="secondary" onclick="exportBackup()">Exportar</button></div><div class="setting"><div><b>☀️🌙 Aparência</b><div class="tiny">Claro, escuro ou seguir o sistema</div></div><button class="secondary" onclick="nxOpenAppearance()">Alterar</button></div><div class="setting"><div><b>🎨 Temas NEXO</b><div class="tiny">Escolha a personalidade visual do aplicativo</div></div><button class="secondary" onclick="nxOpenThemes()">Escolher</button></div><div class="setting"><div><b>↺ Restaurar demonstração</b><div class="tiny">Apaga alterações deste navegador</div></div><button class="danger" onclick="resetDemo()">Restaurar</button></div></div><div class="card"><h3>Conta NEXO</h3><div class="sessionCard"><b id="sessionName">Usuário</b><span class="tiny" id="sessionUser">@usuario</span></div><button class="danger logoutBtn" onclick="logoutLocal()">Sair da conta</button></div><div class="card"><h3>Sobre</h3><p class="muted"><button class="secondary nxHelpTutorial" onclick="nxStartOnboarding(true)">🎓 Conheça o NEXO</button>NEXO v1.8.8 • Tudo começa com uma conexão.</p></div></section></main>
+<section class="page" id="perfil"><div class="profileHero"><div class="bigavatar" id="profileAvatar">R</div><h2 id="profileName">Rodrigo</h2><div class="muted"><span id="profileUser">@rodrigo</span> • <span id="profileStatus">Disponível 🟢</span></div><br><button class="action" onclick="openModal('profileModal')">Editar perfil</button></div><div class="card"><div class="setting"><div><b>🔔 NEXO Toque</b><div class="tiny">Chamadas rápidas entre conexões</div></div><span class="statuspill">ATIVO</span></div><div class="setting"><div><b>⭐ Mensagens favoritas</b><div class="tiny" id="favCount">0 salvas</div></div><button class="secondary" onclick="showFavorites()">Ver</button></div><div class="setting"><div><b>💾 Backup local</b><div class="tiny">Exportar seus testes em JSON</div></div><button class="secondary" onclick="exportBackup()">Exportar</button></div><div class="setting"><div><b>☀️🌙 Aparência</b><div class="tiny">Claro, escuro ou seguir o sistema</div></div><button class="secondary" onclick="nxOpenAppearance()">Alterar</button></div><div class="setting"><div><b>🎨 Temas NEXO</b><div class="tiny">Escolha a personalidade visual do aplicativo</div></div><button class="secondary" onclick="nxOpenThemes()">Escolher</button></div><div class="setting"><div><b>↺ Restaurar demonstração</b><div class="tiny">Apaga alterações deste navegador</div></div><button class="danger" onclick="resetDemo()">Restaurar</button></div></div><div class="card"><h3>Conta NEXO</h3><div class="sessionCard"><b id="sessionName">Usuário</b><span class="tiny" id="sessionUser">@usuario</span></div><button class="danger logoutBtn" onclick="logoutLocal()">Sair da conta</button></div><div class="card"><h3>Sobre</h3><p class="muted"><button class="secondary nxHelpTutorial" onclick="nxStartOnboarding(true)">🎓 Conheça o NEXO</button>NEXO v1.8.8.1 • Tudo começa com uma conexão.</p></div></section></main>
 <nav class="nav"><button class="active" data-page="conversas"><span>💬</span>Conversas</button><button data-page="pessoas"><span>👥</span>Pessoas</button><button class="plus" id="globalPlus">+</button><button data-page="momentos"><span>✨</span>Momentos</button><button data-page="salas"><span>◫</span>Salas</button><button data-page="perfil"><span>◉</span>Perfil</button></nav></div>
 <div class="chatpage" id="chatpage"><div class="chathead"><button class="back" id="back">‹</button><div class="avatar" id="chatAvatar">A</div><div><b id="chatName">Ana</b><div class="online">● online agora</div></div><button class="round" style="margin-left:auto" onclick="toggleChatSearch()">⌕</button><button class="round" onclick="nxOpenChatInfo()">ⓘ</button><button class="round" onclick="nexoTouchV3()">🔔</button></div><div class="chatSearch" id="chatSearch"><input id="chatSearchInput" placeholder="Buscar nesta conversa..." oninput="searchInChat(this.value)"></div><div class="pinned" id="pinned"></div><div class="nxSelectBar" id="nxSelectBar"><button onclick="nxCancelSelection()">✕</button><b id="nxSelectCount">0 selecionadas</b><button onclick="nxForwardSelection()">↗</button><button onclick="nxDeleteSelection()">🗑</button></div><div class="msgs" id="msgs"></div><div class="typing" id="typing">● digitando...</div><div class="replybar" id="replybar"></div><div class="nxRecBar" id="nxRecBar"><span class="nxRecDot"></span><span class="nxRecTime" id="nxRecTime">00:00</span><span class="nxRecState" id="nxRecState">Gravando áudio…</span><button id="nxPauseBtn" onclick="nxPauseRecording()">⏸</button><button onclick="nxCancelRecording()">✕</button><button onclick="nxFinishRecording()">➤</button></div><div class="composer"><button class="round" id="chatPlus">＋</button><input id="mediaInput" type="file" accept="image/*" hidden><button class="round" onclick="document.getElementById('mediaInput').click()">📷</button><input id="message" placeholder="Mensagem..."><button class="round" id="micBtn" onclick="toggleRecording()">🎙</button><button class="round send" id="send">➤</button></div></div>
 <div class="sheet" id="sheet"><div class="panel"><div class="handle"></div><div class="section"><h2>NEXO+</h2><span class="muted">Faça mais na conversa</span></div><div class="grid"><div class="tool"><button onclick="nexoTouch()">🔔</button>Toque</div><div class="tool"><button onclick="createTool('task')">✅</button>Tarefa</div><div class="tool"><button onclick="createTool('poll')">📊</button>Enquete</div><div class="tool"><button onclick="createTool('event')">📅</button>Evento</div><div class="tool"><button onclick="createTool('split')">💰</button>Dividir</div><div class="tool"><button onclick="createTool('location')">📍</button>Local</div><div class="tool"><button onclick="createTool('schedule')">⏳</button>Agendar</div><div class="tool"><button onclick="nxOpenGames()">🎮</button>Jogos</div></div></div></div>
@@ -193,7 +193,7 @@ const dataKey=()=>activeUser?'nexoDataV06_'+activeUser.toLowerCase():'nexoDataV0
 let store=normalize(JSON.parse(localStorage.getItem(dataKey())||'null')||structuredClone(DEMO)),current=1,replyTo=null,toolType='';
 const now=()=>new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});function save(){localStorage.setItem(dataKey(),JSON.stringify(store))}
 function esc(v=''){return String(v).replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
-function render(){const q=($('#search')?.value||'').toLowerCase();$('#chatlist').innerHTML=store.chats.filter(c=>(c.name+' '+(c.user||'')).toLowerCase().includes(q)).map(c=>`<div class="chatrow" onclick="openChat(${c.id})"><div class="pic">${esc(c.initial)}</div><div class="main"><div class="topline"><span class="name">${esc(c.name)}</span><span class="time">${esc(c.time)}</span></div><div class="preview">${esc(c.last)}</div></div>${c.unread?`<span class="badge">${c.unread}</span>`:''}</div>`).join('');$('#people').innerHTML=store.chats.filter(c=>c.user!=='sala').map(c=>`<div class="chatrow" onclick="openChat(${c.id})"><div class="pic">${esc(c.initial)}</div><div class="main"><div class="name">${esc(c.name)}</div><div class="preview">${esc(c.user||'')} • disponível no NEXO</div></div></div>`).join('');$('#stories').innerHTML=store.chats.slice(0,6).map(c=>`<div class="story" onclick="toast('Status de ${esc(c.name)} aberto')"><div class="ring"><div>${esc(c.initial)}</div></div>${esc(c.name)}</div>`).join('');$('#rooms').innerHTML=store.rooms.map(r=>`<div class="card"><h3>${esc(r.name)}</h3><p class="muted">${esc(r.desc)}</p><div class="roommembers">👥 ${r.members} membros</div></div>`).join('');renderProfile()}
+function render(){const q=($('#search')?.value||'').toLowerCase();$('#chatlist').innerHTML=store.chats.filter(c=>(c.name+' '+(c.user||'')).toLowerCase().includes(q)).map(c=>`<div class="chatrow" onclick="openChat(${c.id})"><div class="pic">${esc(c.initial)}</div><div class="main"><div class="topline"><span class="name">${esc(c.name)}</span><span class="time">${esc(c.time)}</span></div><div class="preview">${esc(c.last)}</div></div>${c.unread?`<span class="badge">${c.unread}</span>`:''}</div>`).join('');$('#people').innerHTML='';$('#stories').innerHTML=store.chats.slice(0,6).map(c=>`<div class="story" onclick="toast('Status de ${esc(c.name)} aberto')"><div class="ring"><div>${esc(c.initial)}</div></div>${esc(c.name)}</div>`).join('');$('#rooms').innerHTML=store.rooms.map(r=>`<div class="card"><h3>${esc(r.name)}</h3><p class="muted">${esc(r.desc)}</p><div class="roommembers">👥 ${r.members} membros</div></div>`).join('');renderProfile()}
 function renderProfile(){let p=store.profile;$('#profileName').textContent=p.name;$('#profileUser').textContent=p.user;$('#profileStatus').textContent=p.status;$('#profileAvatar').textContent=p.name[0].toUpperCase();document.querySelector('header .avatar').textContent=p.name[0].toUpperCase();let fav=Object.values(store.messages).flat().filter(m=>m.favorite).length;$('#favCount').textContent=fav+' salvas'}
 function openChat(id){current=id;let c=store.chats.find(x=>x.id===id);c.unread=0;$('#chatName').textContent=c.name;$('#chatAvatar').textContent=c.initial;replyTo=null;replyBar();drawMsgs();$('#chatpage').classList.add('on');save();render()}
 function drawMsgs(){let arr=store.messages[current]||[];$('#msgs').innerHTML=arr.map((m,i)=>{let body=m.type==='special'?specialHTML(m,i):`<div class="bubble ${m.side}">${m.reply?`<div class="reply">↩ ${esc(m.reply)}</div>`:''}${esc(m.text)}${m.reactions?`<div class="reactions">${esc(m.reactions)}</div>`:''}<div class="meta">${m.favorite?'⭐ ':''}${esc(m.at||'')}</div></div>`;return `<div class="msgwrap">${body}<div class="msgmenu"><button onclick="setReply(${i})">↩</button><button onclick="nxReactionPicker(${i})">😊</button><button onclick="favMsg(${i})">⭐</button>${m.side==='me'?`<button onclick="editMsg(${i})">✎</button><button onclick="deleteMsg(${i})">🗑</button>`:''}</div></div>`}).join('');$('#msgs').scrollTop=$('#msgs').scrollHeight}
@@ -952,7 +952,7 @@ setTimeout(()=>nxWaitHomeForTip(),300);
 <input class="search" id="nxGlobalSearchInput" placeholder="Digite para pesquisar..." autocomplete="off" inputmode="search" style="margin-top:12px">
 <div class="nxGlobalTabs"><button class="nxGlobalTab on" data-nxsearchtab="all" onclick="nxSetSearchTab('all')">Tudo</button><button class="nxGlobalTab" data-nxsearchtab="messages" onclick="nxSetSearchTab('messages')">💬 Mensagens</button><button class="nxGlobalTab" data-nxsearchtab="people" onclick="nxSetSearchTab('people')">👤 Pessoas</button><button class="nxGlobalTab" data-nxsearchtab="chats" onclick="nxSetSearchTab('chats')">🗨️ Conversas</button><button class="nxGlobalTab" data-nxsearchtab="favorites" onclick="nxSetSearchTab('favorites')">⭐ Favoritas</button></div>
 <div class="nxGlobalResults" id="nxGlobalSearchResults"><div class="nxSearchEmpty">Digite algo para buscar em todo o NEXO.</div></div></div></div><script>
-/* NEXO v1.8.8 — Busca Global integrada ao id original #search */
+/* NEXO v1.8.8.1 — Busca Global integrada ao id original #search */
 (function(){
  let tab='all',results=[];
  const norm=x=>String(x??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
@@ -977,7 +977,7 @@ setTimeout(()=>nxWaitHomeForTip(),300);
    const {data,error}=await req;if(error)throw error;if(seq!==nxRealGlobalSeq)return;
    nxRealGlobalPeople=(data||[]).map(x=>({type:'people',icon:'👤',title:x.full_name||'Usuário NEXO',text:(x.username||'')+(x.bio?' • '+x.bio:''),realProfile:true,profileId:x.id,username:x.username,self:x.id===session.user.id}));
    results=collect(q);renderG();
-  }catch(e){console.error('[NEXO v1.8.8 Busca Global]',e);if(seq===nxRealGlobalSeq){nxRealGlobalPeople=[];results=collect(q);renderG()}}
+  }catch(e){console.error('[NEXO v1.8.8.1 Busca Global]',e);if(seq===nxRealGlobalSeq){nxRealGlobalPeople=[];results=collect(q);renderG()}}
  }
  function collect(q){
    const nq=norm(q),a=[]; if(!nq)return a;
@@ -1016,7 +1016,7 @@ setTimeout(()=>nxWaitHomeForTip(),300);
 })();
 </script>
 <script>
-/* NEXO v1.8.8 — login limpo: UI privada somente com sessão autenticada */
+/* NEXO v1.8.8.1 — login limpo: UI privada somente com sessão autenticada */
 (function(){
   const SESSION_KEY='nexoSessionV06';
   const tipIds=['nxShadeTop','nxShadeLeft','nxShadeRight','nxShadeBottom','nxTipOutline','nxTipArrow','nxTipBubble'];
@@ -1049,7 +1049,7 @@ setTimeout(()=>nxWaitHomeForTip(),300);
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-/* NEXO v1.8.8 — Supabase Auth (Etapa 1)
+/* NEXO v1.8.8.1 — Supabase Auth (Etapa 1)
    Somente autenticação real. Mensagens/conexões continuam locais nesta etapa. */
 (function(){
   const NX_SUPABASE_URL='https://punwuslxhepaystrxcgy.supabase.co';
@@ -1266,7 +1266,7 @@ setTimeout(()=>nxWaitHomeForTip(),300);
 </script>
 
 <script>
-/* NEXO v1.8.8 — Perfil Supabase FIX
+/* NEXO v1.8.8.1 — Perfil Supabase FIX
    Usa os campos reais do Meu NEXO: #nxHandle e #nxBio, e preserva foto/local. */
 (function(){
   let nxProfileLoadedFor='';
@@ -1397,7 +1397,7 @@ setTimeout(()=>nxWaitHomeForTip(),300);
 })();
 </script>
 <script>
-/* NEXO v1.8.8 — Pessoas reais + envio real de solicitação */
+/* NEXO v1.8.8.1 — Pessoas reais + envio real de solicitação */
 (function(){
  const escp=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const normalize=v=>{v=(v||'').trim().toLowerCase();if(v&&!v.startsWith('@'))v='@'+v;return v};
@@ -1455,7 +1455,7 @@ setTimeout(()=>nxWaitHomeForTip(),300);
      status.textContent='🤝 Solicitação enviada para '+foundPerson.username+'!';
      await searchRealPerson();
    }catch(err){
-     console.error('[NEXO v1.8.8 Conectar]',err);
+     console.error('[NEXO v1.8.8.1 Conectar]',err);
      status.textContent='⚠️ Não foi possível enviar a solicitação: '+(err?.message||'erro desconhecido');
      if(btn){btn.disabled=false;btn.textContent='🤝 Conectar'}
    }
@@ -1489,7 +1489,7 @@ setTimeout(()=>nxWaitHomeForTip(),300);
      const connect=document.getElementById('nxConnectRealBtn');
      if(connect)connect.addEventListener('click',sendConnectionRequest);
    }catch(err){
-     console.error('[NEXO v1.8.8 Pessoas]',err);
+     console.error('[NEXO v1.8.8.1 Pessoas]',err);
      status.textContent='⚠️ A consulta ao Supabase falhou: '+(err?.message||'erro desconhecido');
    }
  }
@@ -1506,7 +1506,7 @@ setTimeout(()=>nxWaitHomeForTip(),300);
 })();
 </script>
 <script>
-/* NEXO v1.8.8 — receber e responder solicitações reais */
+/* NEXO v1.8.8.1 — receber e responder solicitações reais */
 (function(){
  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  let busy=false;
@@ -1527,7 +1527,7 @@ setTimeout(()=>nxWaitHomeForTip(),300);
    }).join('');card.style.display='block';
    list.querySelectorAll('[data-nx-accept]').forEach(b=>b.addEventListener('click',()=>answer(b.dataset.nxAccept,'accepted',b)));
    list.querySelectorAll('[data-nx-reject]').forEach(b=>b.addEventListener('click',()=>answer(b.dataset.nxReject,'rejected',b)));
-  }catch(err){console.error('[NEXO v1.8.8 Solicitações]',err);card.style.display='block';list.innerHTML='<div class="muted">⚠️ Não foi possível carregar as solicitações.</div>'}
+  }catch(err){console.error('[NEXO v1.8.8.1 Solicitações]',err);card.style.display='block';list.innerHTML='<div class="muted">⚠️ Não foi possível carregar as solicitações.</div>'}
   finally{busy=false}
  }
  async function answer(id,status,button){
@@ -1540,7 +1540,7 @@ setTimeout(()=>nxWaitHomeForTip(),300);
    await loadIncoming();
    if(typeof window.nxLoadRealConnections==='function')await window.nxLoadRealConnections();
    if(typeof window.nxSearchRealPerson==='function'){const inp=document.getElementById('nxRealPeopleInput');if(inp?.value.trim())window.nxSearchRealPerson()}
-  }catch(err){console.error('[NEXO v1.8.8 Responder]',err);if(row)row.querySelectorAll('button').forEach(b=>b.disabled=false);if(button)button.textContent=status==='accepted'?'✅ Aceitar':'❌ Recusar';if(typeof toast==='function')toast('⚠️ Não foi possível responder à solicitação.')}
+  }catch(err){console.error('[NEXO v1.8.8.1 Responder]',err);if(row)row.querySelectorAll('button').forEach(b=>b.disabled=false);if(button)button.textContent=status==='accepted'?'✅ Aceitar':'❌ Recusar';if(typeof toast==='function')toast('⚠️ Não foi possível responder à solicitação.')}
  }
  function refreshIfPeople(){if(document.getElementById('pessoas')?.classList.contains('on'))loadIncoming()}
  document.addEventListener('click',e=>{if(e.target.closest?.('.nav button[data-page="pessoas"]'))setTimeout(loadIncoming,80)},true);
@@ -1550,7 +1550,7 @@ setTimeout(()=>nxWaitHomeForTip(),300);
 })();
 </script>
 <script>
-/* NEXO v1.8.8 — listar conexões aceitas reais */
+/* NEXO v1.8.8.1 — listar conexões aceitas reais */
 (function(){
  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  let busy=false;
@@ -1580,7 +1580,7 @@ setTimeout(()=>nxWaitHomeForTip(),300);
    }).join('');
    wrap.style.display='block';
   }catch(err){
-   console.error('[NEXO v1.8.8 Conexões reais]',err);
+   console.error('[NEXO v1.8.8.1 Conexões reais]',err);
    wrap.style.display='block';list.innerHTML='<div class="muted">⚠️ Não foi possível carregar suas conexões reais.</div>';count.textContent='';
   }finally{busy=false}
  }
@@ -1592,7 +1592,7 @@ setTimeout(()=>nxWaitHomeForTip(),300);
 })();
 </script>
 <script>
-/* NEXO v1.8.8 — primeiro acesso após Supabase Auth
+/* NEXO v1.8.8.1 — primeiro acesso após Supabase Auth
    O onboarding e a NEXO Dica antigos eram disparados só no carregamento da página.
    Agora o fluxo é iniciado novamente quando a sessão autenticada realmente entra no app. */
 (function(){
