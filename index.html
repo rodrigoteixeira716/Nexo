@@ -1802,6 +1802,47 @@ setTimeout(()=>nxWaitHomeForTip(),300);
  },true);
  document.getElementById('back')?.addEventListener('click',()=>{realChat=null},true);
  window.nxOpenRealChat=openRealChat;window.nxLoadRealMessages=loadRealMessages;
+
+ // NEXO v1.9.3 — Realtime de mensagens.
+ // Escuta INSERTs permitidos pelo RLS. Se o chat correspondente estiver aberto,
+ // recarrega as mensagens e marca a conversa como lida; caso contrário, atualiza
+ // a lista de Conversas para exibir prévia e contador sem refresh manual.
+ let nxRealtimeChannel=null, nxRealtimeUserId='';
+ async function nxStopRealtime(){
+  try{
+   if(nxRealtimeChannel&&window.nxSupabase)await window.nxSupabase.removeChannel(nxRealtimeChannel);
+  }catch(err){console.warn('[NEXO v1.9.3 Realtime stop]',err)}
+  nxRealtimeChannel=null;nxRealtimeUserId='';
+ }
+ async function nxStartRealtime(){
+  try{
+   const {sb,user}=await getSession();
+   if(nxRealtimeChannel&&nxRealtimeUserId===user.id)return;
+   await nxStopRealtime();
+   nxRealtimeUserId=user.id;
+   nxRealtimeChannel=sb.channel('nexo-messages-'+user.id)
+    .on('postgres_changes',{event:'INSERT',schema:'public',table:'messages'},async payload=>{
+      const msg=payload?.new;if(!msg)return;
+      const chatOpen=document.getElementById('chatpage')?.classList.contains('on');
+      if(realChat&&chatOpen&&msg.conversation_id===realChat.conversationId){
+       await loadRealMessages();
+      }else if(document.getElementById('conversas')?.classList.contains('on')){
+       if(typeof window.nxLoadRealConversations==='function')await window.nxLoadRealConversations();
+      }
+    })
+    .subscribe(status=>{
+      if(status==='CHANNEL_ERROR'||status==='TIMED_OUT')console.warn('[NEXO v1.9.3 Realtime]',status);
+    });
+  }catch(err){console.warn('[NEXO v1.9.3 Realtime start]',err)}
+ }
+
+ // Inicia após o Auth restaurar a sessão e reinicia ao trocar de conta.
+ setTimeout(nxStartRealtime,700);
+ window.nxSupabase?.auth?.onAuthStateChange((event,session)=>{
+  setTimeout(()=>{ if(session?.user)nxStartRealtime(); else nxStopRealtime(); },0);
+ });
+ window.addEventListener('focus',()=>{ if(!document.hidden)nxStartRealtime(); });
+ window.nxStartRealtimeMessages=nxStartRealtime;
 })();
 </script>
 <script>
